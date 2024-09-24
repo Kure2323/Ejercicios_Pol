@@ -8,20 +8,23 @@ public class Actividad_inicial {
         System.out.println("¿Cómo te llamas?");
         Scanner entrada = new Scanner(System.in);
         String nombre = entrada.next();
+        System.out.println("Bienvenido " + nombre);
 
-        System.out.println("¿A qué curso vas?");
-        String curso = entrada.next();
+        int numero1 = 0;
+        int numero2 = 0;
 
-        System.out.println("Hola " + nombre + ", bienvenido a " + curso + ".");
+        while (numero1==0 || numero2==0) {
 
-        System.out.println("Introduce un número:");
-        int numero1 = entrada.nextInt();
+            System.out.println("Error, ambos números no deben ser 0, introduzca de nuevo los números:");
+           System.out.println("Dime un número:");
+            System.out.println("Dime otro número:");
 
-        System.out.println("Introduce otro número:");
-        int numero2 = entrada.nextInt();
+        }
+        if (numero1==0 || numero2==0){System.out.println("ERROR. Un sumando no puede ser 0.");
+        }else{int resultado = numero1 + numero2;
+            System.out.println("El resultado de la suma es: " + resultado);
+        }
 
-        int resultado = numero1 + numero2;
-
-        System.out.println("El resultado de la suma es: " + resultado);
     }
+
 }
