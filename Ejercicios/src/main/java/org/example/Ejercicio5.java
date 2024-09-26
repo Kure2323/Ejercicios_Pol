@@ -18,7 +18,15 @@ public class Ejercicio5 {
         if(numero1 == numero2 || numero2 == numero3 || numero3 == numero1){
             System.out.println("ERROR: hay números introducidos que son iguales");
         }else{
-            if()
+            if(numero1 < numero2 && numero1 < numero3){
+                System.out.println("El menor de los tres es el primero introducido");
+            }else{
+                if(numero2 < numero3){
+                    System.out.println("El menor de los tres es el segundo introducido");
+                }else{
+                    System.out.println("El menor de los tres es el tercero introducido");
+                }
+            }
         }
     }
 }
