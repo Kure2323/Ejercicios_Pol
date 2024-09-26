@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        OperadoresEjemplo operadoresEjemplo = new OperadoresEjemplo();
+       Ejercicio2 ejercicio2 = new Ejercicio2();
+       ejercicio2.ejecutar();
         //operadoresEjemplo.operadores();
         //operadoresEjemplo.asignacion();
         //operadoresEjemplo.comparacion();
-        operadoresEjemplo.logicos();
+        //operadoresEjemplo.logicos();
+
     }
 }

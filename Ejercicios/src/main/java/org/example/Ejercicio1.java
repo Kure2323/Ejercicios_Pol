@@ -1,4 +1,5 @@
 package org.example;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //Realizar un programa que pida un número al usuario, que deberá introducirlo
@@ -12,7 +13,6 @@ public class Ejercicio1 {
 
         System.out.println("Introduce un número...");
         Scanner entrada = new Scanner(System.in);
-
         int numero = entrada.nextInt();
 
         if (numero == 0) {

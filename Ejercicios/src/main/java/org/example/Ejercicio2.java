@@ -5,7 +5,6 @@ import java.util.Scanner;
 //En caso de que el usuario introduzca dos números iguales, informaremos con el siguiente mensaje:
 //        "ERROR: los números introducidos son iguales".
 
-
 public class Ejercicio2 {
 
     public void ejecutar() {

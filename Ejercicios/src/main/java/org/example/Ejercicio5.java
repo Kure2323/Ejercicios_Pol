@@ -6,8 +6,19 @@ import java.util.Scanner;
 //        "ERROR: hay números introducidos que son iguales".
 
 public class Ejercicio5 {
-    public static void main(String[] args){
+    public void ejecutar(){
         Scanner entrada = new Scanner(System.in);
-        
+        System.out.println("Introduce un número");
+        int numero1 = entrada.nextInt();
+        System.out.println("Introduce otro número");
+        int numero2 = entrada.nextInt();
+        System.out.println("Introduce otro número más");
+        int numero3 = entrada.nextInt();
+
+        if(numero1 == numero2 || numero2 == numero3 || numero3 == numero1){
+            System.out.println("ERROR: hay números introducidos que son iguales");
+        }else{
+            if()
+        }
     }
 }
