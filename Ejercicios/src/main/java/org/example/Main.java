@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-      Holamundillo holamundillo = new Holamundillo();
-      holamundillo.ejecutar();
+      Práctica4 práctica4 = new Práctica4();
+      práctica4.ejecutar();
         //operadoresEjemplo.operadores();
         //operadoresEjemplo.asignacion();
         //operadoresEjemplo.comparacion();
