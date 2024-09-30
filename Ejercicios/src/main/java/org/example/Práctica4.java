@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.Scanner;
 
 public class Práctica4 {
@@ -8,6 +7,7 @@ public class Práctica4 {
 
         System.out.println("Introduce el multiplicando (3 cifras):");
         int multiplicando = entrada.nextInt();
+
         System.out.println("Introduce el multiplicador (3 cifras):");
         int multiplicador = entrada.nextInt();
 
@@ -45,6 +45,5 @@ public class Práctica4 {
         System.out.println(" " + rnum3 + "xx");
         System.out.println("________");
         System.out.println(resultado);
-
     }
 }
