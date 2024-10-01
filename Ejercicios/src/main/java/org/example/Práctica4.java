@@ -1,15 +1,26 @@
 package org.example;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Práctica4 {
     public void ejecutar(){
         Scanner entrada = new Scanner(System.in);
+        boolean tc = true;
+        int multiplicando = 0;
+        int multiplicador = 0;
 
-        System.out.println("Introduce el multiplicando (3 cifras):");
-        int multiplicando = entrada.nextInt();
-
-        System.out.println("Introduce el multiplicador (3 cifras):");
-        int multiplicador = entrada.nextInt();
+        while(tc) {
+            try {
+                System.out.println("Introduce el multiplicando (3 cifras):");
+                multiplicando = entrada.nextInt();
+                System.out.println("Introduce el multiplicador (3 cifras):");
+                multiplicador = entrada.nextInt();
+                tc = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Error, introduce de nuevo");
+                entrada.nextLine();
+            }
+        }
 
         while(multiplicador > 999 || multiplicando > 999 || multiplicando < 100 || multiplicador < 100){
             System.out.println("Error, deben ser números de 3 cifras");

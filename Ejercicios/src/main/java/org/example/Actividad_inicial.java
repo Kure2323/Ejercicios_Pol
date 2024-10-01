@@ -5,27 +5,30 @@ import java.util.Scanner;
 
 public class Actividad_inicial {
 
-    public void ejecutar() {
+    public void ejecutar(){
         System.out.println("¿Cómo te llamas?");
         Scanner entrada = new Scanner(System.in);
         String nombre = entrada.next();
-
+        boolean tc = true;
         System.out.println("Bienvenido " + nombre);
 
+        int numero1 = 0;
+        int numero2 = 0;
+
+        while(tc) {
             try {
                 System.out.println("Introduce un número");
-                int numero1 = entrada.nextInt();
+                numero1 = entrada.nextInt();
                 System.out.println("Introduce otro número");
-                int numero2 = entrada.nextInt();
+                numero2 = entrada.nextInt();
+                tc = false;
             } catch (NumberFormatException | InputMismatchException e) {
                 System.out.println("ERROR, eres un poco gilipollas.");
-                int numero1 = 0;
-                int numero2 = 0;
+                numero1 = 0;
+                numero2 = 0;
+                entrada.nextLine();
             }
-            System.out.println("Introduce un número");
-            int numero1 = entrada.nextInt();
-            System.out.println("Introduce otro número");
-            int numero2 = entrada.nextInt();
+        }
 
             if (numero1==0 || numero2==0){
                 System.out.println("ERROR. Un sumando no puede ser 0.");
