@@ -17,7 +17,7 @@ public class Práctica4 {
                 multiplicador = entrada.nextInt();
                 tc = false;
             } catch (InputMismatchException e) {
-                System.out.println("Error, introduce de nuevo");
+                System.out.println("Error, eres un poco gilipollas");
                 entrada.nextLine();
             }
         }
