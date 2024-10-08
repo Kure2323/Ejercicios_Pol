@@ -1,4 +1,4 @@
-package org.example;
+package Unidad_1;
 import java.util.Scanner;
 
 //Realizar un programa para dividir dos números leídos por teclado y escribir el resultado.

@@ -1,4 +1,4 @@
-package org.example;
+package Unidad_1;
 import java.util.Scanner;
 
 public class OperadoresEjemplo {

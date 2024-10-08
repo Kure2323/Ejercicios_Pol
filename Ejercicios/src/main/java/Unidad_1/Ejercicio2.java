@@ -1,4 +1,4 @@
-package org.example;
+package Unidad_1;
 import java.util.Scanner;
 
 //Realizar un programa que permita leer 2 números diferentes por teclado y nos diga cuál de ellos es el mayor.

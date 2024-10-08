@@ -1,4 +1,4 @@
-package org.example;
+package Unidad_1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

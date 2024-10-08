@@ -1,4 +1,4 @@
-package org.example;
+package Unidad_1;
 import java.util.Scanner;
 
 //Realizar un programa para calcular el mínimo de 3 números diferentes leídos desde teclado.
