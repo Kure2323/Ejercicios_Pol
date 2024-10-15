@@ -19,46 +19,46 @@ public class Actividad_exc {
 
         String modo = entrada.next();
 
+        switch(modo){
+            case "1":
+                System.out.println("Introduce el año de nacimiento: ");
+                String anyo_nacimiento = entrada.next();
 
-        if (modo.equals("1")){
-            System.out.println("Introduce el año de nacimiento: ");
-            String anyo_nacimiento = entrada.next();
+                try{
+                    anyo_nac = Integer.parseInt(anyo_nacimiento);
+                }catch (NumberFormatException e){
+                    System.out.println("Has introducido un formato erróneo. No es un número. " + e.getMessage());
+                }
 
-            try{
-                anyo_nac = Integer.parseInt(anyo_nacimiento);
-            }catch (NumberFormatException e){
-                System.out.println("Has introducido un formato erróneo. No es un número. " + e.getMessage());
-            }
+                if (anyo_nac<1900 || anyo_nac>anyo_actual){
+                    System.out.println("El año introducido no es correcto");
+                    error = true;
+                }
+                break;
+            case"2":
+                int edad = 0;
 
-            if (anyo_nac<1900 || anyo_nac>anyo_actual){
-                System.out.println("El año introducido no es correcto");
-                error = true;
-            }
+                System.out.println("Introduce la edad: ");
 
-        }else if (modo.equals("2")){
+                if (entrada.hasNextInt()){
+                    edad = entrada.nextInt();
+                }else{
+                    System.out.println("La edad introducida no tiene un formato válido.");
+                }
 
-            int edad = 0;
+                if (edad<0){
+                    System.out.println("La edad introducida no es válida.");
+                    error = true;
+                }else{
+                    anyo_nac = anyo_actual - edad;
 
-            System.out.println("Introduce la edad: ");
-
-            if (entrada.hasNextInt()){
-                edad = entrada.nextInt();
-            }else{
-                System.out.println("La edad introducida no tiene un formato válido.");
-            }
-
-            if (edad<0){
-                System.out.println("La edad introducida no es válida.");
-                error = true;
-            }else{
-                anyo_nac = anyo_actual - edad;
-
-            }
-
-        }else{
-
-            System.out.println("El modo introducido no es correcto.");
+                }
+                break;
+            default:
+                System.out.println("El modo introducido no es correcto.");
+                break;
         }
+
 
         if (error == false){
             if (anyo_nac>=1900 && anyo_nac<=1927){
