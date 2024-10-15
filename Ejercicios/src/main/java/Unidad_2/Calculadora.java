@@ -30,7 +30,11 @@ public class Calculadora {
         System.out.println("Por favor indica que operación va a querer realizar:");
         String op = entrada.next();
 
-        if (op == "r"){
+        if (op.equals("r")){
+            double res = Math.sqrt(num1);
+            System.out.println("El resultado de la raíz cuadrada es: " + res);
+
+        }else{
             System.out.println("Introduzca el segundo operando:");
             while (!tc){
 
@@ -42,36 +46,37 @@ public class Calculadora {
                     entrada.nextLine();
                 }
             }
-        }
-
-        switch (op){
-            case "+":
-                System.out.println("El resultado de la suma es: " + (num1 + num2));
-                break;
-            case "-":
-                System.out.println("El resultado de la resta es: " + (num1 - num2));
-                break;
-            case "/":
-                while (div == false){
-                    if (num2 == 0){
-                        System.out.println("No se puede introducir 0 de segundo operando.");
-                        num2 = entrada.nextInt();
-                    }else{
-                        double res = num1 / num2;
-                        System.out.println("El resultado de la división es: " + res);
-                        div = true;
+            switch (op){
+                case "+":
+                    System.out.println("El resultado de la suma es: " + (num1 + num2));
+                    break;
+                case "-":
+                    System.out.println("El resultado de la resta es: " + (num1 - num2));
+                    break;
+                case "/":
+                    while (div == false){
+                        if (num2 == 0){
+                            System.out.println("No se puede introducir 0 de segundo operando.");
+                            num2 = entrada.nextInt();
+                        }else{
+                            double res = (double) num1 / num2;
+                            System.out.println("El resultado de la división es: " + res);
+                            div = true;
+                        }
                     }
-                }
-                break;
-            case "x":
-                System.out.println("El resultado de la resta es: " + (num1 * num2));
-                break;
-            case "r":
-                double res = Math.sqrt(num1);
-                System.out.println("El resultado de la raíz cuadrada es: " + res);
+                    break;
+                case "x":
+                    System.out.println("El resultado de la resta es: " + (num1 * num2));
+                    break;
+                default:
+                    System.out.println("Error, operación no reconocida.");
 
 
+
+            }
         }
+
+
 
 
     }
