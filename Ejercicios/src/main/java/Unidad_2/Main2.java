@@ -24,8 +24,11 @@ public class Main2 {
 //        Bucles5 bucles5 = new Bucles5();
 //        bucles5.ejecutar();
 
-        Bucles6 bucles6 = new Bucles6();
-        bucles6.ejecutar();
+//        Bucles6 bucles6 = new Bucles6();
+//        bucles6.ejecutar();
+
+        Bucles7 bucles7 = new Bucles7();
+        bucles7.ejecutar();
     }
 }
 //NumberFormatException
