@@ -3,7 +3,7 @@ package Unidad_2;
 public class Main2 {
     public static void main(String[] args) {
 
-//        Ternario ternario = new Ternario();
+        //        Ternario ternario = new Ternario();
 //        ternario.ejecutar();
 
 //        Calculadora calculadora = new Calculadora();
@@ -30,8 +30,14 @@ public class Main2 {
 //        Bucles7 bucles7 = new Bucles7();
 //        bucles7.ejecutar();
 
-        Bucles8 bucles8 = new Bucles8();
-        bucles8.ejecutar();
+//        Bucles8 bucles8 = new Bucles8();
+//        bucles8.ejecutar();
+
+//        Proyecto_Num_Suerte proyectoNumSuerte = new Proyecto_Num_Suerte();
+//        proyectoNumSuerte.ejecutar();
+
+        Practica3ISBN practica3ISBN = new Practica3ISBN();
+        practica3ISBN.ejecutar();
     }
 }
 //NumberFormatException

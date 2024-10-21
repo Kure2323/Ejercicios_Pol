@@ -43,6 +43,8 @@ public class Proyecto_Num_Suerte {
                     String suma = Integer.toString(dma);    //Paso a String dma (Numero de 4 cifras)
                     String p1 = suma.substring(0,1);    //Vamos haciendo substrings a cada una de las cifras
                     String p2 = suma.substring(1,2);
+
+
                     String p3 = suma.substring(2,3);
                     String p4 = suma.substring(3,4);
 
