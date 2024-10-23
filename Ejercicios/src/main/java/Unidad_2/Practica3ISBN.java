@@ -28,11 +28,35 @@ public class Practica3ISBN {
                 }
             }
 
+
             if(lisbn != 10){
                 System.out.println("Error, debe contener 10 caracteres.");
             }
             if(quest != struq){
                 System.out.println("Error, debe contener tan solo una interrogación.");
+            }
+            if (quest == -1 && equis == -1)  {
+                try{
+                    int e = Integer.parseInt(isbn);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error, no debe contener caracteres diferentes a números, ? y X.");
+
+                }
+            } else if (quest != -1 && equis == -1) {
+                try{
+                    String la = isbn.substring(0,quest);
+                    String din = isbn.substring(quest + 1);
+                    int al = Integer.parseInt(la);
+                    int nid = Integer.parseInt(din);
+                }catch (NumberFormatException e){
+                    System.out.println("Error, no debe contener caracteres diferentes a números, ? y X.");
+
+                }
+            } else if (quest != -1 && equis != -1){
+                String la = isbn.substring(0,quest);
+                String din = isbn.substring(quest + 1,9);
+                int al = Integer.parseInt(la);
+                int nid = Integer.parseInt(din);
             }
 
             if((equis == -1 || equis == 9) && lisbn == 10 && quest == struq){
