@@ -35,8 +35,17 @@ public class Main2 {
 //        Proyecto_Num_Suerte proyectoNumSuerte = new Proyecto_Num_Suerte();
 //        proyectoNumSuerte.ejecutar();
 
-        Practica3ISBN practica3ISBN = new Practica3ISBN();
-        practica3ISBN.ejecutar();
+//        Practica3ISBN practica3ISBN = new Practica3ISBN();
+//        practica3ISBN.ejecutar();
+
+//        Random1 random1 = new Random1();
+//        random1.ejecutar();
+
+//        Random2 random2 = new Random2();
+//        random2.ejecutar();
+
+        Random3 random3 = new Random3();
+        random3.ejecutar();
     }
 }
 //NumberFormatException
