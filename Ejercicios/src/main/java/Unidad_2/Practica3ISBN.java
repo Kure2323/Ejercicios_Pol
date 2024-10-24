@@ -36,14 +36,15 @@ public class Practica3ISBN {
                 System.out.println("Error, debe contener tan solo una interrogación.");
                 bien = false;
 
-//            }else if (quest == -1 && equis == -1)  {    //Try catch para el caso de no ? ni X
-//                try{
-//                    int is = Integer.parseInt(isbn);
-//
-//                } catch (NumberFormatException e) {
-//                    System.out.println("Error, no debe contener caracteres diferentes a números, ? y X.");
-//                    bien = false;
-//                }     //Por motivos que desconozco falla, no se traga números muy altos
+            }else if (quest == -1 && equis == -1)  {    //Try catch para el caso de no ? ni X
+                try{
+                    long is = Long.parseLong(isbn);
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Error, no debe contener caracteres diferentes a números, ? y X.");
+                    bien = false;
+                }     //Por motivos que desconozco falla, no se traga números muy altos
+                //Ampliación: fallaba por culpa del int, al cambiarlo a long ya no da error, no lo sabía
             } else if (quest != -1 && equis == -1) {    //Try catch para el caso de sí ? pero no X
                 try{    //Realizo substrings por un lado del interrogante, en el caso de que se pueda por ambos y fuerzo un error para el catch que pase a false la V bien
                     if (quest == 0){

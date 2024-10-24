@@ -7,7 +7,14 @@ public class Basurero {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introduce números");
         String num = entrada.nextLine();
-        float res = Integer.parseInt(num);
+//        for(int i = 0; i < 10; i++){
+//
+//        }
+        long res = Long.parseLong(num);
         System.out.println(res);
+
+
+
     }
+
 }
