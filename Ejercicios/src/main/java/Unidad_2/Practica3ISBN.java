@@ -38,11 +38,12 @@ public class Practica3ISBN {
 
 //            }else if (quest == -1 && equis == -1)  {    //Try catch para el caso de no ? ni X
 //                try{
-//                    int e = Integer.parseInt(isbn);
+//                    int is = Integer.parseInt(isbn);
+//
 //                } catch (NumberFormatException e) {
 //                    System.out.println("Error, no debe contener caracteres diferentes a números, ? y X.");
 //                    bien = false;
-//                }     Por motivos que desconozco falla
+//                }     //Por motivos que desconozco falla, no se traga números muy altos
             } else if (quest != -1 && equis == -1) {    //Try catch para el caso de sí ? pero no X
                 try{    //Realizo substrings por un lado del interrogante, en el caso de que se pueda por ambos y fuerzo un error para el catch que pase a false la V bien
                     if (quest == 0){
