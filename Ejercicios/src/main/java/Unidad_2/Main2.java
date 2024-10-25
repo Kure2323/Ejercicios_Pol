@@ -47,8 +47,20 @@ public class Main2 {
 //        Random3 random3 = new Random3();
 //        random3.ejecutar();
 
-        Random4 random4 = new Random4();
-        random4.ejecutar();
+//        Random4 random4 = new Random4();
+//        random4.ejecutar();
+
+        Pre1 pre1 = new Pre1();
+        pre1.ejecutar();
+
+//        Pre2 pre2 = new Pre2();
+//        pre2.ejecutar();
+
+//        Pre3 pre3 = new Pre3();
+//        pre3.ejecutar();
+
+//        Pre4 pre4 = new Pre4();
+//        pre4.ejecutar();
     }
 }
 //Excepciones comunes:
