@@ -44,8 +44,13 @@ public class Main2 {
 //        Random2 random2 = new Random2();
 //        random2.ejecutar();
 
-        Random3 random3 = new Random3();
-        random3.ejecutar();
+//        Random3 random3 = new Random3();
+//        random3.ejecutar();
+
+        Random4 random4 = new Random4();
+        random4.ejecutar();
     }
 }
+//Excepciones comunes:
 //NumberFormatException
+//ArithmeticException
