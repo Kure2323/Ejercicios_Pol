@@ -26,17 +26,19 @@ public class Practica3ISBN {
                     System.out.println("Error, la equis debe estar en última posición.");
                     bien = false;
                 }
-
-            }else if (lisbn != 10){ //Debe tener 10 caracteres
+            }
+            if (lisbn != 10){ //Debe tener 10 caracteres
                 System.out.println("Error, debe contener 10 caracteres.");
                 bien = false;
 
 
-            }else if(quest != struq){   //No puede haber más de una interrogación
+            }
+            if(quest != struq){   //No puede haber más de una interrogación
                 System.out.println("Error, debe contener tan solo una interrogación.");
                 bien = false;
 
-            }else if (quest == -1 && equis == -1)  {    //Try catch para el caso de no ? ni X
+            }
+            if (quest == -1 && equis == -1)  {    //Try catch para el caso de no ? ni X
                 try{
                     long is = Long.parseLong(isbn);
 
@@ -45,7 +47,8 @@ public class Practica3ISBN {
                     bien = false;
                 }     //Por motivos que desconozco falla, no se traga números muy altos
                 //Ampliación: fallaba por culpa del int, al cambiarlo a long ya no da error, no lo sabía
-            } else if (quest != -1 && equis == -1) {    //Try catch para el caso de sí ? pero no X
+            }
+            if (quest != -1 && equis == -1) {    //Try catch para el caso de sí ? pero no X
                 try{    //Realizo substrings por un lado del interrogante, en el caso de que se pueda por ambos y fuerzo un error para el catch que pase a false la V bien
                     if (quest == 0){
                         String din = isbn.substring(quest +1);
@@ -65,7 +68,8 @@ public class Practica3ISBN {
                     bien = false;
 
                 }
-            } else if (quest != -1 && equis != -1){     //Try catch para el caso de sí ? y sí X
+            }
+            if (quest != -1 && equis != -1){     //Try catch para el caso de sí ? y sí X
                 try{
                     String la = isbn.substring(0,quest);
                     String din = isbn.substring(quest + 1,9);

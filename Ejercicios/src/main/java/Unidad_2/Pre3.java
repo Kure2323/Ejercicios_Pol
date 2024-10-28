@@ -2,6 +2,7 @@ package Unidad_2;
 
 import java.util.Scanner;
 
+
 public class Pre3 {
     void ejecutar(){
         Scanner entrada = new Scanner(System.in);

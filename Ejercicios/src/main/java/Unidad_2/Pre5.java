@@ -20,25 +20,45 @@ public class Pre5 {
         System.out.println("Introduce el sueldo número 5");
         int sueldo5 = entrada.nextInt();
 
-        if(sueldo1 > sueldo2 && sueldo1 > sueldo3 && sueldo1 > sueldo4 && sueldo1 > sueldo5){
-            System.out.println("El primer sueldo es el más alto " + sueldo1);
-        }else if(sueldo2 > sueldo1 && sueldo2 > sueldo3 && sueldo2 > sueldo4 && sueldo2 > sueldo5){
-            System.out.println("El segundo sueldo es el más alto " + sueldo2);
-        }else if(sueldo3 > sueldo1 && sueldo3 > sueldo2 && sueldo3 > sueldo4 && sueldo3 > sueldo5){
-            System.out.println("El tercer sueldo es el más alto " + sueldo3);
-        }else if( sueldo4 > sueldo1 && sueldo4 > sueldo2 && sueldo4 > sueldo3 && sueldo4 > sueldo5){
-            System.out.println("El cuarto sueldo es el más alto " + sueldo4);
-        }else if(sueldo5 > sueldo1 && sueldo5 > sueldo2 && sueldo5 > sueldo3 && sueldo5 > sueldo4){
-            System.out.println("El quinto sueldo es el más alto " + sueldo5);
+        int max = 0;
+        String xam = "";
+
+        if (max < sueldo1) {
+            max = sueldo1;
+            xam = "El sueldo más alto es el primero";
+        }
+        if (max < sueldo2) {
+            max = sueldo2;
+            xam = "El sueldo más alto es el segundo";
+        }
+        if (max < sueldo3) {
+            max = sueldo3;
+            xam = "El sueldo más alto de el tercero";
+        }
+        if (max < sueldo4) {
+            max = sueldo4;
+            xam = "El sueldo más alto es el cuarto";
+        }
+        if (max < sueldo5) {
+            max = sueldo5;
+            xam = "El sueldo más alto es el quinto";
         }
 
-
-
-
-
-
-
-
-
+        System.out.println(xam);
+        if (sueldo1 > 1000){
+            System.out.println("El primer sueldo es mayor a 1000");
+        }
+        if (sueldo2 > 1000) {
+            System.out.println("El segundo sueldo es mayor a 1000");
+        }
+        if (sueldo3 > 1000){
+            System.out.println("El tercer sueldo es mayor a 1000");
+        }
+        if (sueldo4 > 1000) {
+            System.out.println("El cuarto sueldo es mayor a 1000");
+        }
+        if (sueldo5 > 1000) {
+            System.out.println("El quinto sueldo es mayor a 1000");
+        }
     }
 }

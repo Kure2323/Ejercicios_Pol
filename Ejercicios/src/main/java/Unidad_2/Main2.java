@@ -50,8 +50,8 @@ public class Main2 {
 //        Random4 random4 = new Random4();
 //        random4.ejecutar();
 
-        Pre1 pre1 = new Pre1();
-        pre1.ejecutar();
+//        Pre1 pre1 = new Pre1();
+//        pre1.ejecutar();
 
 //        Pre2 pre2 = new Pre2();
 //        pre2.ejecutar();
@@ -61,6 +61,15 @@ public class Main2 {
 
 //        Pre4 pre4 = new Pre4();
 //        pre4.ejecutar();
+
+//        Pre5 pre5 = new Pre5();
+//        pre5.ejecutar();
+
+//        Pre6 pre6 = new Pre6();
+//        pre6.ejecutar();
+
+        Pre7 pre7 = new Pre7();
+        pre7.ejecutar();
     }
 }
 //Excepciones comunes:
