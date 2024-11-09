@@ -27,6 +27,7 @@ public class SamuráisP1 {
         System.out.println("Equipo 1");
 
         do {
+            ver = false;
             suma1 = 0;
             System.out.println("Introduce la potencia de los samurais:");
             try{
@@ -63,6 +64,7 @@ public class SamuráisP1 {
         System.out.println("Equipo 2");
 
         do {
+            vor = false;
             suma2 = 0;
             System.out.println("Introduce la potencia de los samurais:");
             try{
