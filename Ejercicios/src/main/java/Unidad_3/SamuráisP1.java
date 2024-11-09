@@ -30,7 +30,7 @@ public class SamuráisP1 {
             suma1 = 0;
             System.out.println("Introduce la potencia de los samurais:");
             String entry1 = entrada.nextLine();
-            team1 = entry1.split(",");
+            team1 = entry1.replace(" ", "").split(",");
             System.out.println(Arrays.toString(team1));
             if (team1.length != 7) {
                 System.out.println("El equipo debe de ser de 7");
@@ -61,7 +61,7 @@ public class SamuráisP1 {
             suma2 = 0;
             System.out.println("Introduce la potencia de los samurais:");
             String entry2 = entrada.nextLine();
-            team2 = entry2.split(",");
+            team2 = entry2.replace(" ","").split(",");
             System.out.println(Arrays.toString(team2));
             if (team2.length != 7) {
                 System.out.println("El equipo debe de ser de 7");
@@ -85,9 +85,38 @@ public class SamuráisP1 {
         System.out.println("Equipo completado.");
 
         //8888888888888888888888888888888888888888888888888888888888888888888888888888888888888
-
-        for (int i = 0; i < 7; i++) {
-            
+        int p1 = 0;
+        int p2 = 0;
+        for (int i = 0; ; i++) {
+            if (rdm == 7) {
+                rdm = 0;
+            }
+            if (equipo1[rdm] > equipo2[rdm]){
+                System.out.println("Samurai " + (rdm + 1) + ". Gana Equipo 1. " + equipo1[rdm] + " vs " + equipo2[rdm]);
+                equipo2[rdm] = 0;
+                p1++;
+            }
+            if (equipo2[rdm] > equipo1[rdm]){
+                System.out.println("Samurai " + (rdm + 1) + ". Gana Equipo 2. " + equipo1[rdm] + " vs " + equipo2[rdm]);
+                equipo1[rdm] = 0;
+                p2++;
+            }
+            if (equipo2[rdm] == equipo1[rdm]) {
+                System.out.println("¡EMPATE! ambos samurais mueren " + equipo1[rdm] + " vs " + equipo2[rdm]);
+                equipo2[rdm] = 0;
+                equipo1[rdm] = 0;
+                p1++;
+                p2++;
+            }
+            if (p1 > 4) {
+                System.out.println("¡Equipo 1 GANA! Equipo 2 ha tenido " + p2 + " bajas.");
+                break;
+            }
+            if (p2 > 4) {
+                System.out.println("¡Equipo 2 GANA! Equipo 1 ha tenido " + p1 + " bajas.");
+                break;
+            }
+            rdm++;
         }
 
 
