@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class SamuráisP1 {
+public class Proyect_Samurai {
     void ejecutar() {
 
         Scanner entrada = new Scanner(System.in);
