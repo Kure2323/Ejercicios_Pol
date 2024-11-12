@@ -84,7 +84,7 @@ public class Proyect_Samurai {
                 p1++;
                 p2++;
             }
-            if (p1 > 4) {   //En caso de que un equipo obtiene más de 4 ptos quiere decir que ha ganado
+            if (p1 >= 4) {   //En caso de que un equipo obtiene más de 4 ptos quiere decir que ha ganado
                 if (p1 == p2) { //En caso de ser empate
                     System.out.println("¡EMPATE!");
                     break;
@@ -93,7 +93,7 @@ public class Proyect_Samurai {
                     break;
                 }
             }
-            if (p2 > 4) {
+            if (p2 >= 4) {  //Cambiado de p2 > 4, a: p2 >= 4    Me confundí
                 System.out.println("¡Equipo 2 GANA! Equipo 1 ha tenido " + p1 + " bajas.");
                 break;
             }
