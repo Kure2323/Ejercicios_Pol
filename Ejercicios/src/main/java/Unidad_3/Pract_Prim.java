@@ -18,6 +18,7 @@ public class Pract_Prim {
         boolean filtro = false; //Boolean para comprobar y hacer saltar el programa si falla algo
         int reintegro = 0;  //Reintegro introducido por el usuario
         int aciertos = 0;
+        boolean rein = true;
 
         do {    //Número de la lotería
             for (int i = 0; i < loteria.length; i++) {
@@ -79,40 +80,27 @@ public class Pract_Prim {
                 aciertos++;
             }
         }
+        System.out.println();
 
         //Categorías:
         if (aciertos==6 && reintegro==reint_maquina) {
             System.out.println("Has ganado la Primitiva!!! Categoría Especial, has acertado todos los números y el reintegro");
+            rein = false;
         } else if (aciertos==6) {
             System.out.println("Has ganado la Primitiva!!! 1ªCategoría, has acertado: " + aciertos);
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
         } else if (aciertos==5 && Arrays.asList(num_usuario).contains(complementario)==true) {
             System.out.println("2ªCategoría, has acertado: " + aciertos + " y el número complementario.");
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
         } else if (aciertos==5) {
             System.out.println("3ªCategoría, has acertado: " + aciertos);
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
         } else if (aciertos==4) {
             System.out.println("4ªCategoría, has acertado: " + aciertos);
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
         } else if (aciertos==3) {
             System.out.println("5ªCategoría, has acertado: " + aciertos);
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
         } else if (aciertos<3) {
             System.out.println("No premiado, has acertado: " + aciertos);
-            if (reintegro == reint_maquina) {
-                System.out.println("Reintegro.");
-            }
+        }
+        if (rein && reintegro==reint_maquina) {
+            System.out.println("Reintegro.");
         }
     }
 }
