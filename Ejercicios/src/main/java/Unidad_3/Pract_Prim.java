@@ -28,10 +28,10 @@ public class Pract_Prim {
             reint_maquina=rdm.nextInt(10);
 
         }while (loteria.length!= Arrays.stream(loteria).distinct().toArray().length || Arrays.asList(loteria).contains(complementario) == true);
-        System.out.println("Chuleta:");
-        System.out.println("Num lotería: " + Arrays.toString(loteria));
-        System.out.println("Complementario: " + complementario);
-        System.out.println("Reintegro: " + reint_maquina);
+//        System.out.println("Chuleta:");
+//        System.out.println("Num lotería: " + Arrays.toString(loteria));
+//        System.out.println("Complementario: " + complementario);
+//        System.out.println("Reintegro: " + reint_maquina);
 
         System.out.println("Introduce los datos de tu boleto:");
         String entry = entrada.next();
