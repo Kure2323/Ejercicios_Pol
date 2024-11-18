@@ -28,14 +28,13 @@ public class Pract_Prim {
             reint_maquina=rdm.nextInt(10);
 
         }while (loteria.length!= Arrays.stream(loteria).distinct().toArray().length || Arrays.asList(loteria).contains(complementario) == true);
-//        System.out.println(Arrays.toString(loteria));
-//        System.out.println("Complementario: " + complementario);
-//        System.out.println("Reintegro: " + reint_maquina);
+        System.out.println("Chuleta:");
+        System.out.println("Num lotería: " + Arrays.toString(loteria));
+        System.out.println("Complementario: " + complementario);
+        System.out.println("Reintegro: " + reint_maquina);
 
         System.out.println("Introduce los datos de tu boleto:");
-
         String entry = entrada.next();
-
         if (entry.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1}") == true) {
 
             filtro=true;
@@ -75,31 +74,45 @@ public class Pract_Prim {
         System.out.println("Reintegro: " + reint_maquina);
 
         //Aciertos
-
         for (int i = 0; i < loteria.length; i++) {
             if (Arrays.asList(loteria).contains(num_usuario[i])) {
                 aciertos++;
             }
         }
 
-
         //Categorías:
         if (aciertos==6 && reintegro==reint_maquina) {
             System.out.println("Has ganado la Primitiva!!! Categoría Especial, has acertado todos los números y el reintegro");
         } else if (aciertos==6) {
             System.out.println("Has ganado la Primitiva!!! 1ªCategoría, has acertado: " + aciertos);
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
         } else if (aciertos==5 && Arrays.asList(num_usuario).contains(complementario)==true) {
             System.out.println("2ªCategoría, has acertado: " + aciertos + " y el número complementario.");
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
         } else if (aciertos==5) {
             System.out.println("3ªCategoría, has acertado: " + aciertos);
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
         } else if (aciertos==4) {
             System.out.println("4ªCategoría, has acertado: " + aciertos);
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
         } else if (aciertos==3) {
             System.out.println("5ªCategoría, has acertado: " + aciertos);
-        } else if (aciertos<3 && reintegro==reint_maquina) {
-            System.out.println("Reintegro: has acertado en número del reintegro.");
-        } else {
-            System.out.println("No premiado.");
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
+        } else if (aciertos<3) {
+            System.out.println("No premiado, has acertado: " + aciertos);
+            if (reintegro == reint_maquina) {
+                System.out.println("Reintegro.");
+            }
         }
     }
 }
