@@ -83,8 +83,8 @@ public class Prac_sopa {
         while (true) {
             System.out.println("Introduzca la palabra a buscar:");
             String busca = entrada.next();
-            if (!busca.matches("[a-zA-Z]+")) {  //Paso un filtro para comprobar que tan solo son letras
-                System.out.println("Valores incorrectos.");
+            if (!busca.matches("[a-zA-Z]+") || busca.length() > columnas) {  //Paso un filtro para comprobar que tan solo son letras
+                System.out.println("Valores incorrectos o longitud intorrecta.");
                 entrada.nextLine();
                 continue;
             }
