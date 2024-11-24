@@ -17,6 +17,8 @@ public class Prac_sopa {
         String[] palabra;
         int pos_f;
         int pos_c;
+        int final_posf = 0;
+        int final_posc = 0;
         int pos_palabra = 0;
         int aciertos = 1;
         boolean encontrado = false;
@@ -100,9 +102,16 @@ public class Prac_sopa {
             Siguiente_vuelta:
             for (int j = 0; j < sopa[0].length; j++) {
                 pos_palabra = 0;
+                final_posf = i;
+                final_posc = j;
 
                 if (sopa[i][j].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {
                     pos_palabra++;
+
+                    if (aciertos == palabra.length) {
+                        encontrado = true;
+                        break Todo;
+                    }
                     //Bucle interno para cada posición alrededor del punto de partida
 
                     for (int k = -1; k < 2; k++) {
@@ -110,7 +119,8 @@ public class Prac_sopa {
                         interno:
                         for (int l = -1; l < 2; l++) {
 
-                            System.out.print(k + " " + l);
+                            //Chuleta
+//                            System.out.print(k + " " + l + "/");
                             try {
 
                                 if (k == 0 && l == 0) {
@@ -122,7 +132,6 @@ public class Prac_sopa {
 
                                     aciertos++;
                                     if (aciertos == palabra.length) {
-                                        System.out.println("La palabra está en la posición: " + i + ", " + j);
                                         encontrado = true;
                                         break Todo;
                                     }
@@ -135,13 +144,13 @@ public class Prac_sopa {
                                         if (sopa[i + pos_f][j + pos_c].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {
                                             aciertos++;
                                             if (aciertos == palabra.length) {
-                                                System.out.println("La palabra está en la posición: " + i + ", " + j);
                                                 encontrado = true;
                                                 break Todo;
                                             }
                                         } else {
                                             aciertos = 1;
-                                            continue Siguiente_vuelta;
+                                            pos_palabra = 1;
+                                            continue interno;
                                         }
 
                                     }
@@ -158,6 +167,8 @@ public class Prac_sopa {
         }
         if (encontrado == false) {
             System.out.println("La palabra no se encuentra en la sopa de letras.");
+        } else {
+            System.out.println("La palabra está en la posición: " + final_posf + ", " + final_posc);
         }
 
 
