@@ -1,16 +1,14 @@
 package Unidad_3;
 
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Prac_sopa {
     public void sopa() {
 
         Scanner entrada = new Scanner(System.in);
-        Random rdm = new Random();
 
-        int repes = 0;
+        //Todas las variables, vectores y matrices usadas a lo largo del programa
         int filas;
         int columnas;
         String[] vector_sopa;
@@ -24,14 +22,15 @@ public class Prac_sopa {
         boolean encontrado = false;
 
         //Pedir filas y columnas
-        while (true) {
+        while (true) {  //bucle para volver a pedir datos en caso de 'catch'
 
             try{
                 System.out.println("Introduce el número de filas:");
-                filas = entrada.nextInt();
+                filas = entrada.nextInt();  //Número de filas de la matriz sopa
                 System.out.println("Introduce el número de columnas:");
-                columnas = entrada.nextInt();
+                columnas = entrada.nextInt();   //Número de columnas de la matriz sopa
                 if (filas <= 0 || columnas <= 0) {
+                    System.out.println("No debe ser menor a 1.");
                     continue;
                 }
                 break;
@@ -42,32 +41,31 @@ public class Prac_sopa {
 
         }
 
-        String[][] sopa = new String[filas][columnas];
+        String[][] sopa = new String[filas][columnas];  //Matriz de la sopa de letras
 
         //Pedir sopa
         for (int i = 0; i < sopa.length; i++) {
 
-            filtro:
             while (true) {
 
                 System.out.println("Introduce las letras de la fila " + (i+1));
                 String fila = entrada.next();
-                String vector[] = fila.split("");
-                if (vector.length != columnas) {
+                String vector[] = fila.split("");   //Realiza un split a lo introducido
+                if (vector.length != columnas) {    //Comprueba que lo introducido es de mismo tamaño que lo anteriormente estipulado
                     System.out.println("Formato incorrecto: " + columnas + " letras.");
                     entrada.nextLine();
-                    continue filtro;
+                    continue;
                 }
-                if (fila.matches("[A-Za-z]+") == false) {
+                if (fila.matches("[A-Za-z]+") == false) {   //Únicamente permite la entrada de valores como letras
                     System.out.println("Solo puede introducir letras.");
                     entrada.nextLine();
-                    continue filtro;
+                    continue;
                 }
                 vector_sopa = vector;
-                break filtro;
+                break;
 
             }
-            for (int j = 0; j < sopa[0].length; j++) {
+            for (int j = 0; j < sopa[0].length; j++) {  //Transfiere los datos introducidos a la matriz
                 sopa[i][j] = vector_sopa[j];
             }
 
@@ -76,88 +74,86 @@ public class Prac_sopa {
         //Mostrar sopa
         for (int i = 0; i < sopa.length; i++) {
             for (int j = 0; j < sopa[0].length; j++) {
-                System.out.print(sopa[i][j] + " ");
+                System.out.print(sopa[i][j] + "  ");
             }
             System.out.println();
         }
 
         //Pedir palabra
-
         while (true) {
             System.out.println("Introduzca la palabra a buscar:");
             String busca = entrada.next();
-            if (!busca.matches("[a-zA-Z]+")) {
+            if (!busca.matches("[a-zA-Z]+")) {  //Paso un filtro para comprobar que tan solo son letras
                 System.out.println("Valores incorrectos.");
                 entrada.nextLine();
                 continue;
             }
-            palabra = busca.split("");
+            palabra = busca.split("");  //Hago de la palabra un array para facilitar el trabajo próximo
             break;
         }
 
-
+        //Búsqueda y localización de la palabra en la sopa (Recorrido 3x3)
         Todo:
-        for (int i = 0; i < sopa.length; i++) {
+        for (int i = 0; i < sopa.length; i++) { //Bucle para ir de fila en fila
 
-            Siguiente_vuelta:
-            for (int j = 0; j < sopa[0].length; j++) {
-                pos_palabra = 0;
+            for (int j = 0; j < sopa[0].length; j++) {  //Bucle para ir de columna en columna
+                pos_palabra = 0;    //Pos de la array de la palabra a buscar, la busco de posición en posición
                 final_posf = i;
                 final_posc = j;
 
-                if (sopa[i][j].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {
-                    pos_palabra++;
+                if (sopa[i][j].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {  //Compara si la posición del recorrido de la matriz coincide con la primera letra de la palabra
+                    pos_palabra++;  //Suma uno y pasa a la siguiente letra de la palabra
 
-                    if (aciertos == palabra.length) {
+                    if (aciertos == palabra.length) {   //Comprobarnte de aciertos
                         encontrado = true;
-                        break Todo;
+                        break Todo; //Sale de todos los bucles
                     }
-                    //Bucle interno para cada posición alrededor del punto de partida
-
+                    //Bucle interno para cada posición alrededor del punto de partida (3x3)
+                    //Se trata de tomar la posición 'i' y 'j' para trazar una búsqueda de 1 letra de largo a su alrededor haciendo uso de otros dos bucles for
                     for (int k = -1; k < 2; k++) {
 
                         interno:
                         for (int l = -1; l < 2; l++) {
 
-                            //Chuleta
+                            //Chuleta para la posición encontrada donde: -1 -1 = arriba izquierda, -1 0 = arriba, -1 1 = arriba derecha... etc
 //                            System.out.print(k + " " + l + "/");
-                            try {
+                            try {   //todo se encuentra dentro de un try catch pues cabe la posibilidad de andar buscando fuera de la matriz
 
-                                if (k == 0 && l == 0) {
+                                if (k == 0 && l == 0) { //No nos interesa buscar en la posición 0, 0 respecto a la primera letra encontrada por lo que seguimos antes de hacer más
                                     continue interno;
                                 }
-                                pos_f = k;
+                                pos_f = k;  //Guardo los valores para ir sumándose en un futuro
                                 pos_c = l;
-                                if (sopa[i + k][j + l].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {
+                                if (sopa[i + k][j + l].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {  //Sumamos a las posiciones i y j, k y l para buscar a su alrededor más aciertos
 
                                     aciertos++;
                                     if (aciertos == palabra.length) {
-                                        encontrado = true;
-                                        break Todo;
+                                        encontrado = true;  //Boolean que marca que la palabra ha sido encontrada
+                                        break Todo; //Al acertar todas sale de todos los bucles
                                     }
 
-                                    for (int m = 0; m < palabra.length - 2; m++) {
+                                    for (int m = 0; m < palabra.length - 2; m++) {  //Bucle en busca de más posibles aciertos en la dirección estipulada (pos_f y pos_c). .length - 2 pues una vez llegas al bucle por lo menos ha encontrado ya 2 letras
 
                                         pos_palabra++;
-                                        pos_f += k;
+                                        pos_f += k; //Se expande en la dirección encontrada la anterior letra
                                         pos_c += l;
-                                        if (sopa[i + pos_f][j + pos_c].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {
+                                        if (sopa[i + pos_f][j + pos_c].toLowerCase().equals(palabra[pos_palabra].toLowerCase())) {  //Comprueba si coinciden y le otorga aciertos si así es
                                             aciertos++;
                                             if (aciertos == palabra.length) {
                                                 encontrado = true;
                                                 break Todo;
                                             }
-                                        } else {
-                                            aciertos = 1;
-                                            pos_palabra = 1;
+                                        } else {    //En caso de no coincidir se dirige a la siguiente posición del 3x3
+                                            aciertos = 1; //Reinicia el contador de aciertos
+                                            pos_palabra = 1;    //Y el de la posición de palabra a 1 pues es posible que no esté en la posición [-1, 0], pero sí en la [-1, 1]
                                             continue interno;
                                         }
 
                                     }
-                                } else {
+                                } else {    //Una vez repasado todas las posibles posiciones del 3x3 y no estar reinicia el contador de aciertos
                                     aciertos = 1;
                                 }
-                            } catch (ArrayIndexOutOfBoundsException e) {
+                            } catch (ArrayIndexOutOfBoundsException e) {    //En caso de estar buscando fuera de los límites simplemente pasa a la siguiente, no haría falta el continue, pero lo dejo para ubicarme
                                 continue interno;
                             }
                         }
@@ -165,21 +161,11 @@ public class Prac_sopa {
                 }
             }
         }
-        if (encontrado == false) {
+
+        if (encontrado == false) {  //Comprueba q haya sido encontrada la palabra y muestra uno de los dos siguiente mensajes
             System.out.println("La palabra no se encuentra en la sopa de letras.");
         } else {
             System.out.println("La palabra está en la posición: " + final_posf + ", " + final_posc);
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
