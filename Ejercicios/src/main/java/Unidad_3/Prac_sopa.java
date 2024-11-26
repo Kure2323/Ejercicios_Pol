@@ -52,7 +52,7 @@ public class Prac_sopa {
 
                 System.out.println("Introduce las letras de la fila " + (i + 1));
                 String fila = entrada.next();
-                String vector[] = fila.split("");   //Realiza un split a lo introducido
+                String vector[] = fila.replace(" ", "").split("");   //Realiza un split a lo introducido
                 if (vector.length != columnas) {    //Comprueba que lo introducido es de mismo tamaño que lo anteriormente estipulado
                     System.out.println("Formato incorrecto: " + columnas + " letras.");
                     entrada.nextLine();
@@ -81,10 +81,10 @@ public class Prac_sopa {
             System.out.println();
         }
 
+
         //Pedir palabra
         System.out.println("Introduzca la palabra a buscar:");
         palabras = entrada.next().split(","); //Contenedor de palabras
-
 
         while (true) {
             if (!palabras[p].matches("[a-zA-Z ]+")) {  //Paso un filtro para comprobar que tan solo son letras
