@@ -45,4 +45,74 @@ public class Hyperpar {
 
 
     }
+    public void mario() {
+
+        Scanner entrada = new Scanner(System.in);
+
+
+        int num;
+        do {
+            System.out.println("Introduce la cantidad de muros.");
+            num = entrada.nextInt();
+        } while (num < 1 || num > 10);
+
+        int[] muro = new int[num];
+
+        String[] alturas = null;
+
+        System.out.println("Introduce la altura de los muros");
+        entrada.nextLine();
+        alturas = entrada.nextLine().split(" ");
+
+        if (alturas.length != num) {
+            System.out.println("Error");
+            return;
+        }
+
+
+        for (int i = 0; i < num; i++) {
+            muro[i] = Integer.parseInt(alturas[i]);
+        }
+
+
+        int subidas = 0;
+        int bajadas = 0;
+        for (int i = 0; i < num - 1; i++) {
+            if (muro[i] > muro[i + 1]) {
+                bajadas++;
+            } else if (muro[i] < muro[i + 1]) {
+                subidas++;
+            }
+        }
+        System.out.println("Hay " + subidas + " subidas y " + bajadas + " bajadas.");
+
+
+    }
+    public void ventas() {
+
+        Scanner entrada = new Scanner(System.in);
+        int[] vector = new int[2];
+
+        System.out.println("Introduce");
+        while (true) {
+            String entry = entrada.next();
+
+            if (!entry.matches("//d{3}.//d{2}")) {
+                if (entry == "-1") {
+                    break;
+                } else {
+                    System.out.println("Error, formato no válido");
+                    return;
+                }
+            } else {
+                for (int i = 0; i < 2; i++) {
+                    String[] aux = entry.split(".");
+                    vector[i] = Integer.parseInt(aux[i]);
+                }
+            }
+        }
+
+
+
+    }
 }
