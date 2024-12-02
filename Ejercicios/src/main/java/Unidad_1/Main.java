@@ -5,12 +5,7 @@ package Unidad_1;
 public class Main {
     public static void main(String[] args) {
 
-      Práctica4 práctica4 = new Práctica4();
-      práctica4.ejecutar();
-        //operadoresEjemplo.operadores();
-        //operadoresEjemplo.asignacion();
-        //operadoresEjemplo.comparacion();
-        //operadoresEjemplo.logicos();
+
 
     }
 }
