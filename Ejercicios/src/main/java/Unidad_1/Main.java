@@ -1,5 +1,6 @@
 package Unidad_1;
 
+import Unidad_4.Ejercicios;
 import Unidad_4.Guijarros;
 import Unidad_4.MostrarMatriz;
 
@@ -7,7 +8,7 @@ import Unidad_4.MostrarMatriz;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Guijarros.balanza();
+        Ejercicios.varargs();
 
 
     }

@@ -6,10 +6,10 @@ public class MostrarMatriz {
         int[][] matriz = new int[3][3];
 
         matriz = Method.RdmMatriz(matriz);
-        Method.MostrarMatriz(matriz);
+        Method.MostrarMatrizInt(matriz);
         System.out.println();
         Method.OrdenarMatriz(matriz);
-        Method.MostrarMatriz(matriz);
+        Method.MostrarMatrizInt(matriz);
 
 
     }
