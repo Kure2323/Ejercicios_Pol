@@ -5,7 +5,11 @@ public class MostrarMatriz {
 
         int[][] matriz = new int[3][3];
 
-        matriz = Aleator
+        matriz = Method.RdmMatriz(matriz);
+        Method.MostrarMatriz(matriz);
+        System.out.println();
+        Method.OrdenarMatriz(matriz);
+        Method.MostrarMatriz(matriz);
 
 
     }
