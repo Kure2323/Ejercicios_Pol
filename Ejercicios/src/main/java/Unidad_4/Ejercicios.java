@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicios {
+
     public static void ejercicio1() {
 
         Scanner entrada = new Scanner(System.in);
