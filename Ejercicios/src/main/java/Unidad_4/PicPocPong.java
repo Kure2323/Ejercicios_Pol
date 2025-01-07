@@ -15,7 +15,7 @@ public class PicPocPong {
 
         String[] vector = datos.split(" ");
 
-        Method.Datos(vector);
+
 
 
 

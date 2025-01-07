@@ -55,9 +55,25 @@ public class Ejercicios {
 
     }
 
-    public static void ventas() {
+    public static int factorial(int num) {
 
-        Scanner entrada = new Scanner(System.in);
+        int fact = 1;
+
+        for (int i = num; i >= 1; i--) {
+            fact*=i;
+        }
+
+        return fact;
+
+    }
+    
+    public static int factorial_recursivo(int num) {
+
+        if (num == 0 || num == 1) {
+            return 1;
+        }
+
+        return num*factorial_recursivo(num-1);
 
 
 
