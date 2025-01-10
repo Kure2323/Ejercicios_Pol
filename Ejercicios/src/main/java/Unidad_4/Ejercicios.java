@@ -79,6 +79,61 @@ public class Ejercicios {
 
     }
 
+    public static void triangulo(int num) {
+
+        String ast = "";
+
+        for (int i = 0; i < 4; i++) {
+            ast += "* ";
+            System.out.println(ast);
+        }
+
+    }
+
+    public static void rectriangulo(int num) {
+
+        String ast = "* ";
+
+        if (num + 1 < 0) {
+            System.exit(0);
+        } else {
+            for (int i = 0; i < num; i++) {
+                System.out.print(ast);
+            }
+            System.out.println();
+            rectriangulo(num -1);
+
+        }
+
+
+    }
+
+    public static int fibonacci(int n){
+
+        if (n<2) {
+            return n;
+        } else {
+            return fibonacci(n-1) + fibonacci(n-2);
+        }
+
+    }
+
+    public static int nums(int num) {
+
+        if (num != 0) {
+            System.out.print(nums(num-1) + 1 + " ");
+        }
+        return num;
+
+    }
+
+    public static long sums(long num) {
+
+        if (num != 0) {
+            num = sums(num-1) + num;
+        }
+        return num;
+    }
 
 
 }
