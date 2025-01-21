@@ -11,7 +11,6 @@ public class Persona {
     private String profesion;
 
     public Persona() {
-
     }
 
     public Persona(String nombre, String apelllido, String dni, int peso, int edad, String residencia, String profesion) {

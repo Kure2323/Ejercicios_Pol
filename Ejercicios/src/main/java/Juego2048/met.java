@@ -15,6 +15,7 @@ public class met {
                 System.out.print(matriz[i][j]);
 
             }
+            System.out.println();
         }
 
     }
@@ -23,12 +24,16 @@ public class met {
 
         int num = rdm.nextInt(0,7);
         int[][] matriz = new int[4][4];
+        int count = 0;
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
 
-                if (matriz[i][j] == 0) {
-
+                count++;
+                if (count == num) {
+                    matriz[i][j] = 2;
+                } else if (count == num + 2) {
+                    matriz[i][j] = 2;
                 }
 
             }
@@ -36,5 +41,36 @@ public class met {
         return matriz;
 
     }
+
+    public static void requestMove() {
+        switch (in.next().toLowerCase()){
+            case "w":
+                //Insertar método aquí
+                break;
+            case "a":
+                //Insertar método aquí
+                break;
+            case "s":
+                break;
+            case "d":
+                break;
+        }
+    }
+
+    public static int[][] executeMove(int[][] matriz) {
+
+        //Default exec direction downwards
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+
+
+
+            }
+        }
+
+
+    }
+
+
 
 }

@@ -9,3 +9,11 @@ Ejemplo de tablero:
 +--------+--------+--------+--------+
 |        |        |        |        |
 +--------+--------+--------+--------+
+
+en caso de haber 3 número iguales en fila y juntarlos, se juntan los dos más cercanos a la pared, ej:
+
+0 0 0 0     0 0 0 0
+2 2 2 0     4 2 0 0
+0 0 0 0     0 0 0 0
+0 0 0 0     0 0 0 0
+
