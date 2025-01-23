@@ -77,8 +77,9 @@ public class Persona {
 
     }
 
-    public void imprimirPersona() {
-        System.out.println(this.nombre + " " + this.apelllido + " " + this.dni + " " + this.peso + " " + this.edad);
+    @Override
+    public String toString() {
+        return this.nombre + " " + this.apelllido + " " + this.dni + " " + this.peso + " " + this.edad;
 
     }
 
