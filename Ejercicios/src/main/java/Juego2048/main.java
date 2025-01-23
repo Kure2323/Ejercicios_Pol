@@ -33,7 +33,7 @@ public class main {
      * Debe redirigir a la siguiente acción del juego (Pedir movimiento)
      * @param matriz
      */
-    public static void showMatrix(int[][] matriz) {
+    private static void showMatrix(int[][] matriz) {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -47,10 +47,11 @@ public class main {
         requestMove(matriz);
     }
 
-    public static void showInterRound() {
+    private static void showInterRound() {
         System.out.println();
         System.out.println("Introduce el movimiento a efectuar:");
         System.out.println();
+
     }
 
     public static int[][] createInitial() {
@@ -75,20 +76,36 @@ public class main {
 
     }
 
-    public static void requestMove(int[][] matriz) {
+    private static void requestMove(int[][] matriz) {
 
         String respuesta = in.next().toLowerCase();
 
         switch (respuesta){
             case "w":
-                //Insertar método aquí
+                for (int i = 0; i < 4; i++) {
+                    matriz = antiClockRotation(matriz);
+                }
+                matriz = executeDefaultMove(matriz);
+                matriz = antiClockRotation(matriz);
                 break;
             case "a":
-                executeDefaultMove(matriz);
+                matriz = executeDefaultMove(matriz);
+                fusionNumbers(matriz);
                 break;
             case "s":
+                matriz = executeDefaultMove(antiClockRotation(matriz));
+                for (int i = 0; i < 3; i++) {
+                    matriz = antiClockRotation(matriz);
+                }
                 break;
             case "d":
+                for (int i = 0; i < 2; i++) {
+                    matriz = antiClockRotation(matriz);
+                }
+                matriz = executeDefaultMove(matriz);
+                for (int i = 0; i < 2; i++) {
+                    matriz = antiClockRotation(matriz);
+                }
                 break;
             default:
                 requestMove(matriz);
@@ -107,7 +124,7 @@ public class main {
      * @param matriz
      * @return
      */
-    public static int[][] executeDefaultMove(int[][] matriz) {
+    private static int[][] executeDefaultMove(int[][] matriz) {
         //Default exec direction left
         for (int k = 0; k < 4; k++) {
             for (int i = 0; i < matriz.length; i++) {
@@ -124,7 +141,53 @@ public class main {
         return matriz;
     }
 
-    public static int[][] fusionNumbers(int[][] matriz) {
+    private static void fusionNumbers(int[][] matriz) {
+        //It is necessary an executeDefaultMove
+        //and the given matrix might be moved to the left
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 1; j < matriz[i].length; j++) {
+
+                if (matriz[i][j] == matriz[i][j - 1]) {
+                    matriz[i][j - 1] += matriz[i][j];
+                    matriz[i][j] = 0;
+                }
+
+            }
+        }
+        executeDefaultMove(matriz);
+
+    }
+
+    /**
+     * Rotate the matrix in anti clock rotation so:
+     * The default move is left, with antiClockRotation will execute an down move
+     * NO FURULA
+     * @param matriz
+     * @return
+     */
+    private static int[][] antiClockRotation(int[][] matriz) {
+
+        int[][] result = new int[4][4];
+        int[] array = new int[4];
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+
+                array[j] = matriz[i][j];
+
+            }
+            result = auxAntiClockRotation(array,i,result);
+        }
+        return result;
+
+    }
+    private static int[][] auxAntiClockRotation(int[] array, int fori, int[][] result) {
+
+        for (int i = 0; i < array.length; i++) {
+            result[i][fori] = array[i];
+        }
+        return result;
 
     }
 
