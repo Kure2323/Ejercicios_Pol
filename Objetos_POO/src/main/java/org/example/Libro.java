@@ -12,6 +12,8 @@ public class Libro {
     private String id; //A modificar
     private boolean disponible=DISP_DEF;
     private Editorial editorial;
+    private Estudiante estudiantePrestado;
+
 
     public Estudiante getEstudiantePrestado() {
         return estudiantePrestado;
@@ -20,8 +22,6 @@ public class Libro {
     public void setEstudiantePrestado(Estudiante estudiantePrestado) {
         this.estudiantePrestado = estudiantePrestado;
     }
-
-    private Estudiante estudiantePrestado;
 
 
     public Libro (String titulo, String autor, Editorial editorial) {
@@ -47,7 +47,7 @@ public class Libro {
         return String.format("LIB%03d",numlibro);
     }
 
-    public void prestar(Estudiante estudiante) {
+    public Prestamo prestar(Estudiante estudiante) {
 
         if (disponible && estudiante.getLibroPrestado() == null) {
             displibro--;
@@ -55,13 +55,20 @@ public class Libro {
             estudiantePrestado = estudiante;
             System.out.println("El libro ha sido prestado con éxito");
             estudiante.setLibroPrestado(this);
-
+            Prestamo prestamo = new Prestamo(estudiante, this);
+            System.out.println("Se ha generado el préstamo " + prestamo);
+            return prestamo;
         } else if (estudiante.getLibroPrestado() != null) {
             System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado.");
         } else {
             System.out.println("El libro " + getTitulo() + " se puede prestar porque no está disponible");
         }
+        return null;
     }
+
+//    public Prestamo getPrestamo(Prestamo prestamo) {
+//        return prestamo;
+//    }
 
     public void devolver() {
         if (!disponible) {

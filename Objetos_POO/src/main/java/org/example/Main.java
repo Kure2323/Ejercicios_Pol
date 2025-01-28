@@ -13,10 +13,16 @@ public class Main {
 //        persona1.setNombre("Messi");
 //        System.out.println(persona1.getNombre());
 
-        Estudiante estudiante1 = new Estudiante("Manuel", "2'ASIR", "noseke@alu.edu.hva.es");
-        Libro libro1 = new Libro("La novia de Pol","Marcela", new Editorial("Freelance", "Groenlandia"));
-        estudiante1.setLibroPrestado(libro1);
-        System.out.println(libro1.toString());
+//
+//        Editorial editorial1 = new Editorial("Freelance", "Groenlandia");
+//        Estudiante estudiante1 = new Estudiante("Manuel", "2'ASIR", "noseke@alu.edu.hva.es");
+//        Libro libro1 = new Libro("La novia de Pol","Marcela", editorial1);
+//        estudiante1.setLibroPrestado(libro1);
+//        System.out.println(libro1);
+//
+
+        Prestamo prestamo = new Prestamo(new Estudiante("Manu"), new Libro("Titulo", "Macela", new Editorial("Editorial", "Pais")));
+        System.out.println(prestamo);
 
     }
 }

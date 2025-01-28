@@ -82,30 +82,13 @@ public class main {
 
         switch (respuesta){
             case "w":
-                for (int i = 0; i < 4; i++) {
-                    matriz = antiClockRotation(matriz);
-                }
-                matriz = executeDefaultMove(matriz);
-                matriz = antiClockRotation(matriz);
                 break;
             case "a":
-                matriz = executeDefaultMove(matriz);
-                fusionNumbers(matriz);
                 break;
             case "s":
-                matriz = executeDefaultMove(antiClockRotation(matriz));
-                for (int i = 0; i < 3; i++) {
-                    matriz = antiClockRotation(matriz);
-                }
                 break;
             case "d":
-                for (int i = 0; i < 2; i++) {
-                    matriz = antiClockRotation(matriz);
-                }
-                matriz = executeDefaultMove(matriz);
-                for (int i = 0; i < 2; i++) {
-                    matriz = antiClockRotation(matriz);
-                }
+
                 break;
             default:
                 requestMove(matriz);
@@ -166,29 +149,10 @@ public class main {
      * @param matriz
      * @return
      */
-    private static int[][] antiClockRotation(int[][] matriz) {
+    private static int[][] rotateMatrix(int[][] matriz) {
 
-        int[][] result = new int[4][4];
-        int[] array = new int[4];
 
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-
-                array[j] = matriz[i][j];
-
-            }
-            result = auxAntiClockRotation(array,i,result);
-        }
-        return result;
-
-    }
-    private static int[][] auxAntiClockRotation(int[] array, int fori, int[][] result) {
-
-        for (int i = 0; i < array.length; i++) {
-            result[i][fori] = array[i];
-        }
-        return result;
-
+        return matriz;
     }
 
 
