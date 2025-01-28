@@ -10,6 +10,16 @@ public class Estudiante {
     private int nia;
     private String email;
 
+    public Libro getLibroPrestado() {
+        return libroPrestado;
+    }
+
+    public void setLibroPrestado(Libro libroPrestado) {
+        this.libroPrestado = libroPrestado;
+    }
+
+    private Libro libroPrestado;
+
     public Estudiante(String nombre){
         this.nombre=nombre;
         contadorEstudiantes++;

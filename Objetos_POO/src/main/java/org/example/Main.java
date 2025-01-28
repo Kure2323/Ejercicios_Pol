@@ -13,8 +13,10 @@ public class Main {
 //        persona1.setNombre("Messi");
 //        System.out.println(persona1.getNombre());
 
-
-
+        Estudiante estudiante1 = new Estudiante("Manuel", "2'ASIR", "noseke@alu.edu.hva.es");
+        Libro libro1 = new Libro("La novia de Pol","Marcela", new Editorial("Freelance", "Groenlandia"));
+        estudiante1.setLibroPrestado(libro1);
+        System.out.println(libro1.toString());
 
     }
 }
