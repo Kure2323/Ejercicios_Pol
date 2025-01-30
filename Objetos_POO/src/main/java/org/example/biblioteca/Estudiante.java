@@ -1,6 +1,5 @@
-package org.example;
+package org.example.biblioteca;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Estudiante {
