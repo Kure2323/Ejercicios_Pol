@@ -7,6 +7,27 @@ public class Libro {
     final static String LIB = "LIB";
     private final static boolean DISP_DEF = true;
 
+    @Override
+    public String toString() {
+        if (estudiantePrestado != null)
+        return "Libro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", id='" + id + '\'' +
+                ", disponible=" + disponible +
+                ", editorial=" + editorial.getNombre() +
+                ", estudiantePrestado=" + estudiantePrestado.getNombre() +
+                '}';
+        else {
+            return "Libro{" +
+                    "titulo='" + titulo + '\'' +
+                    ", autor='" + autor + '\'' +
+                    ", id='" + id + '\'' +
+                    ", disponible=" + disponible +
+                    ", editorial=" + editorial.getNombre();
+        }
+    }
+
     private String titulo;
     private String autor;
     private String id; //A modificar
@@ -33,6 +54,7 @@ public class Libro {
         displibro++;
         estudiantePrestado = null;
         this.editorial=editorial;
+        editorial.anyadirLibro(this);
     }
 
 
@@ -49,19 +71,19 @@ public class Libro {
 
     public Prestamo prestar(Estudiante estudiante) {
 
-        if (disponible && estudiante.getLibroPrestado() == null) {
+        if (disponible && !estudiante.getLibrosPrestados().contains(this)) {
             displibro--;
             disponible = false;
             estudiantePrestado = estudiante;
             System.out.println("El libro ha sido prestado con éxito");
-            estudiante.setLibroPrestado(this);
+            estudiante.anyadirLibro(this);
             Prestamo prestamo = new Prestamo(estudiante, this);
             System.out.println("Se ha generado el préstamo " + prestamo);
             return prestamo;
-        } else if (estudiante.getLibroPrestado() != null) {
-            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado.");
+        } else if (estudiante.getLibrosPrestados().contains(this)) {
+            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene el libro prestado.");
         } else {
-            System.out.println("El libro " + getTitulo() + " se puede prestar porque no está disponible");
+            System.out.println("El libro " + getTitulo() + " no se puede prestar porque no está disponible");
         }
         return null;
     }
@@ -70,12 +92,13 @@ public class Libro {
 //        return prestamo;
 //    }
 
-    public void devolver() {
+    public void devolver(Estudiante estudiante) {
         if (!disponible) {
             displibro++;
             System.out.println("El libro ha sido devuelto con éxito por: " + estudiantePrestado.getNombre());
             disponible=true;
             estudiantePrestado=null;
+            estudiante.eliminarLibro(this);
         } else {
             System.out.println("El libro no se puede devolver porque no ha sido prestado");
         }
@@ -127,12 +150,7 @@ public class Libro {
         this.disponible=disponible;
     }
 
-    @Override
-    public String toString(){
 
-        return "Libro: [Título= " + getTitulo() + " Autor= " + getAutor() + " ID= " + getId() + " ¿Está disponible? " + getDisponible() + " estudiante=" + estudiantePrestado.getNombre() + " editorial=" + editorial.getNombre() + " ]";
-
-    }
 
 
 

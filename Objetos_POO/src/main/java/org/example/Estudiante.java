@@ -1,28 +1,46 @@
 package org.example;
 
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Estudiante {
 
 
     public static int contadorEstudiantes = 0;
 
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "nombre='" + nombre + '\'' +
+                ", curso='" + curso + '\'' +
+                ", nia=" + nia +
+                ", email='" + email + '\'' +
+                ", librosPrestados=" + librosPrestados +
+                '}';
+    }
+
     private String nombre;
     private String curso;
     private int nia;
     private String email;
+    private ArrayList<Libro> librosPrestados;
 
-    public Libro getLibroPrestado() {
-        return libroPrestado;
+
+    public ArrayList<Libro> getLibrosPrestados() {
+
+        return librosPrestados;
+
     }
 
-    public void setLibroPrestado(Libro libroPrestado) {
-        this.libroPrestado = libroPrestado;
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
     }
-
-    private Libro libroPrestado;
 
     public Estudiante(String nombre){
         this.nombre=nombre;
         contadorEstudiantes++;
+        nia=contadorEstudiantes;
+        librosPrestados = new ArrayList<>();
     }
 
     public Estudiante (String nombre, String curso, String email) {
@@ -32,6 +50,7 @@ public class Estudiante {
         this.email=email;
         contadorEstudiantes++;
         this.nia=contadorEstudiantes;
+        librosPrestados = new ArrayList<>();
 
     }
 
@@ -62,14 +81,18 @@ public class Estudiante {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Alumno: " + this.nombre + " curso: " + this.curso + " nia " + this.nia + " email: " + this.email;
 
-    }
 
     public static int obtenerTotalEstudiantes() {
         return contadorEstudiantes;
+    }
+
+
+    public void anyadirLibro(Libro libro){
+        librosPrestados.add(libro);
+    }
+    public void eliminarLibro(Libro libro){
+        librosPrestados.remove(libro);
     }
 
 }

@@ -21,8 +21,32 @@ public class Main {
 //        System.out.println(libro1);
 //
 
-        Prestamo prestamo = new Prestamo(new Estudiante("Manu"), new Libro("Titulo", "Macela", new Editorial("Editorial", "Pais")));
-        System.out.println(prestamo);
+//        Prestamo prestamo = new Prestamo(new Estudiante("Manu"), new Libro("Titulo", "Macela", new Editorial("Editorial", "Pais")));
+//        System.out.println(prestamo);
+
+
+//        Persona persona1 = new Persona("Luis", "Sánchez", "12345678A",45, 18, "Casa Lola", "Putero");
+//        Equipo equipo1 = new Equipo("Real Mutxamel");
+//        System.out.println(equipo1);
+//        equipo1.anyadirComponente(persona1);
+//        System.out.println(equipo1);
+//        equipo1.eliminarComponente(persona1);
+//        System.out.println(equipo1);
+
+        Estudiante estudiante1 = new Estudiante("Manuel", "2ºA","manumanuel@gmail.com");
+        Editorial editorial = new Editorial("Editorial Chingona", "Yugoslavia");
+        Libro libro = new Libro("Tú y quizás yo", "Marcela M. S.", editorial);
+
+        libro.prestar(estudiante1);
+        System.out.println(estudiante1);
+
+        libro.devolver(estudiante1);
+        System.out.println(estudiante1);
+        System.out.println(editorial);
+        System.out.println(libro);
+
+
+
 
     }
 }

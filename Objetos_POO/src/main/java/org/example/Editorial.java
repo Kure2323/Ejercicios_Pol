@@ -1,15 +1,33 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Editorial {
 
     private String nombre;
     private String pais;
+    private ArrayList<Libro> listaLibros;
 
     public Editorial(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
+        listaLibros = new ArrayList<>();
     }
 
+    public void anyadirLibro(Libro libro){
+        listaLibros.add(libro);
+    }
+    public void eliminarLibro(Libro libro){
+        listaLibros.remove(libro);
+    }
+
+    public ArrayList<Libro> getListaLibros() {
+        return listaLibros;
+    }
+
+    public void setListaLibros(ArrayList<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
+    }
 
     public String getNombre() {
         return nombre;
@@ -26,7 +44,7 @@ public class Editorial {
 
     @Override
     public String toString() {
-        return "Editorial : [ nombre=" + getNombre() + " pais=" + getPais() + " ]";
+        return "Editorial : [ nombre=" + getNombre() + " pais=" + getPais() + " lista de libros= " + listaLibros + " ]";
     }
 
 }
