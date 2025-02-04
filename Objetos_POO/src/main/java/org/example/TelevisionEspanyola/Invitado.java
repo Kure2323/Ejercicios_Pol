@@ -36,10 +36,26 @@ public class Invitado {
         this.temporada = temporada;
     }
 
+    public Invitado(String nombre, String profesion, int temporada) {
+        this.nombre = nombre;
+        this.profesion = profesion;
+        this.fecha_visita = LocalDate.now();
+        this.temporada = temporada;
+    }
+
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
     private int temporada;
 
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                "nombre='" + nombre + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", fecha_visita=" + fecha_visita +
+                ", temporada=" + temporada +
+                '}';
+    }
 
 }

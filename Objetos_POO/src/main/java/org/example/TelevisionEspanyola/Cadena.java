@@ -26,16 +26,23 @@ public class Cadena {
 
     public Cadena(String nombre) {
         this.nombre = nombre;
-        this.listaProgramas = new ArrayList<>();
+        listaProgramas = new ArrayList<>();
 
     }
 
     public void agregarPrograma(Programa programa) {
         listaProgramas.add(programa);
+        programa.setCadena(this);
+    }
+
+    public void borrarPrograma(Programa programa) {
+        listaProgramas.remove(programa);
+        programa.setCadena(new Cadena());
     }
 
     private String nombre;
     private ArrayList<Programa> listaProgramas;
+
 
     @Override
     public String toString() {

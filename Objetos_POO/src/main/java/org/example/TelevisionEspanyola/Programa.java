@@ -53,24 +53,26 @@ public class Programa {
     }
 
     public void agregarEmpleado(String nombre, String cargo) {
+
         Empleado empleado = new Empleado(nombre, cargo);
+        if (empleado.getCargo().equals("director")) {
+            empleado.setCargo("pte");
+        }
         empleado.setDirector(director);
         listaEmpleados.add(empleado);
 
     }
 
-    public Programa() {
-        temporadas = 0;
-        listaEmpleados = new ArrayList<>();
-        director = new Empleado(null,"director");
-        listaEmpleados.add(director);
-        listaInvitados = new ArrayList<>();
-        cadena = null;
+    public void agregarInvitado(String nombre, String profesion, int temporada) {
+
+        Invitado invitado = new Invitado(nombre, profesion, temporada);
+        listaInvitados.add(invitado);
+
     }
+
 
     public Programa(String nombre,int temporadas, String nombreDirector) {
         this.nombre = nombre;
-        this.cadena = cadena;
         this.temporadas = temporadas;
         listaEmpleados = new ArrayList<>();
         this.director = new Empleado(nombreDirector, "director");
@@ -89,7 +91,7 @@ public class Programa {
     public String toString() {
         return "Programa{" +
                 "nombre='" + nombre + '\'' +
-                ", cadena=" + cadena +
+                ", cadena=" + cadena.getNombre() +
                 ", temporadas=" + temporadas +
                 ", listaEmpleados=" + listaEmpleados +
                 ", listaInvitados=" + listaInvitados +

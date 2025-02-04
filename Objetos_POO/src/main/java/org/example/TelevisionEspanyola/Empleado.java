@@ -40,7 +40,7 @@ public class Empleado {
 
     }
 
-    private String comprobarCargo(String cargo) {
+    public String comprobarCargo(String cargo) {
 
         if (!cargo.equals("director") && !cargo.equals("técnico") && !cargo.equals("presentador") && !cargo.equals("colaborador"))
             return "pte";
