@@ -1,0 +1,84 @@
+@startuml
+
+package org.example.biblioteca {
+    class Prestamo {
+        - Estudiante estudiante
+        - Libro libro
+        - LocalDate fecha
+        + Prestamo(Estudiante estudiante, Libro libro)
+        + LocalDate getFecha()
+        + void setFecha(LocalDate fecha)
+        + Estudiante getEstudiante()
+        + void setEstudiante(Estudiante estudiante)
+        + Libro getLibro()
+        + void setLibro(Libro libro)
+        + String toString()
+    }
+
+    class Estudiante {
+        - nombre: String
+        - curso: String
+        - nia: int
+        - email: String
+        - librosPrestados: ArrayList<Libro>
+        + Estudiante(nombre: String)
+        + Estudiante(nombre: String, curso: String, email: String)
+        + getNombre(): String
+        + getCurso(): String
+        + getNia(): int
+        + getEmail(): String
+        + setNombre(nombre: String): void
+        + setCurso(curso: String): void
+        + setNia(nia: int): void
+        + setEmail(email: String): void
+        + anyadirLibro(libro: Libro): void
+        + eliminarLibro(libro: Libro): void
+        + obtenerTotalEstudiantes(): int
+    }
+
+    class Libro {
+        - titulo: String
+        - autor: String
+        - id: String
+        - disponible: boolean
+        - editorial: Editorial
+        - estudiantePrestado: Estudiante
+        + Libro(titulo: String, autor: String, editorial: Editorial)
+        + calcularId(): String
+        + librosDisponibles(): int
+        + cantidadLibros(): int
+        + prestar(estudiante: Estudiante): Prestamo
+        + devolver(estudiante: Estudiante): void
+        + estaDisponible(): void
+        + getTitulo(): String
+        + getAutor(): String
+        + getId(): String
+        + getDisponible(): boolean
+        + setTitulo(titulo: String): void
+        + setAutor(autor: String): void
+        + setDisponible(disponible: boolean): void
+    }
+
+    class Editorial {
+        - nombre: String
+        - pais: String
+        - listaLibros: ArrayList<Libro>
+        + Editorial(nombre: String, pais: String)
+        + anyadirLibro(libro: Libro): void
+        + eliminarLibro(libro: Libro): void
+        + getListaLibros(): ArrayList<Libro>
+        + setListaLibros(listaLibros: ArrayList<Libro>): void
+        + getNombre(): String
+        + getPais(): String
+        + setNombre(nombre: String): void
+        + setPais(pais: String): void
+    }
+
+    Prestamo --> Estudiante
+    Prestamo --> Libro
+    Estudiante "1" -- "*" Libro : "prestado"
+    Libro "1" -- "1" Estudiante : "prestado a"
+    Editorial "1" *-- "*" Libro : "publica"
+}
+
+@enduml
