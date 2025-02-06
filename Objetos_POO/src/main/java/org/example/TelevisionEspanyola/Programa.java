@@ -63,6 +63,54 @@ public class Programa {
 
     }
 
+    public void invitadosTemporada(int temporada) {
+
+        System.out.println("Los invitados que han ido a la temporada: " + temporada);
+        int cont = 0;
+        for (Invitado inv : listaInvitados) {
+            if (inv.getTemporada() == temporada) {
+                System.out.println("Nombre: " + inv.getNombre() + ", de profesión: " + inv.getProfesion());
+                cont++;
+            }
+        }
+        System.out.println("Hay un total de " + cont);
+    }
+
+    public int vecesInvitado(String nombre) {
+        int cont = 0;
+        for (Invitado inv : listaInvitados) {
+            if (nombre.equals(inv.getNombre())){
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+    public void rastrearInvitado(String nombre) {
+        for (Invitado inv : listaInvitados) {
+            if (inv.getNombre().equals(nombre)) {
+                System.out.println("Fecha:" + inv.getFecha_visita() + " y temporada: " + inv.getTemporada());
+            }
+        }
+    }
+
+    public boolean buscarInvitado(String nombre) {
+        for (Invitado inv : listaInvitados) {
+            if (inv.getNombre().equals(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void invitadoAntes(String nombre) {
+        if (buscarInvitado(nombre)) {
+            for (Invitado inv : listaInvitados) {
+                if (inv.getFecha_visita().isBefore())
+            }
+        }
+    }
+
     public void agregarInvitado(String nombre, String profesion, int temporada) {
 
         Invitado invitado = new Invitado(nombre, profesion, temporada);

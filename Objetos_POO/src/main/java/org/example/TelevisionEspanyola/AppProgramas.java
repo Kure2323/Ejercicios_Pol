@@ -13,9 +13,13 @@ public class AppProgramas {
 
         Cadena cadena = new Cadena( "Cadena libre");
         cadena.agregarPrograma(programa);
-        programa.agregarInvitado("Izan", "Putero profesional", 12);
+        programa.agregarInvitado("Izan", "Putero profesional", 6);
+        programa.agregarInvitado("Izan", "Desustanciao", 6);
+        programa.agregarInvitado("Juan", "Butanero", 5);
         cadena.borrarPrograma(programa);
         System.out.println(programa);
+
+        System.out.println(programa.buscarInvitado("Mariano"));
 
 
     }

@@ -1,8 +1,10 @@
 package org.example.TelevisionEspanyola;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Invitado {
+    Scanner in = new Scanner(System.in);
 
     public String getNombre() {
         return nombre;
@@ -39,8 +41,18 @@ public class Invitado {
     public Invitado(String nombre, String profesion, int temporada) {
         this.nombre = nombre;
         this.profesion = profesion;
-        this.fecha_visita = LocalDate.now();
+        this.fecha_visita = pedirFecha();
         this.temporada = temporada;
+    }
+
+    private LocalDate pedirFecha() {
+        System.out.println("Introduce el año en el que acudirá el invitado " + this.getNombre() + ":");
+        int anyo = in.nextInt();
+        System.out.println("Introduce el mes:");
+        int mes = in.nextInt();
+        System.out.println("Introduce el día:");
+        int dia = in.nextInt();
+        return LocalDate.of(anyo,mes,dia);
     }
 
     private String nombre;
