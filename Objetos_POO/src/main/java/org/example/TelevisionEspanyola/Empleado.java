@@ -30,16 +30,30 @@ public class Empleado {
         return director;
     }
 
+    /**
+     * Asigna un director, es prácticamente un set
+     * @param director
+     */
     public void asignarDirector(Empleado director) {
         this.director = director;
     }
 
+    /**
+     * Método para generar un ID por cada Empleado nuevo, va ligado a la cantidad de estos.
+     * @return
+     */
     public String generarID() {
 
         return String.format("EP%03d", ++cantidad);
 
     }
 
+    /**
+     * Comprueba que el cargo entra dentro de lo establecido y devuelve su valor si lo está,
+     * en caso de no ser ninguno de ellos devuelve pte
+     * @param cargo
+     * @return
+     */
     public String comprobarCargo(String cargo) {
 
         if (!cargo.equals("director") && !cargo.equals("técnico") && !cargo.equals("presentador") && !cargo.equals("colaborador"))
@@ -48,22 +62,27 @@ public class Empleado {
 
     }
 
+    /**
+     * Constructor con parámetros de Empleado
+     * Llama a generarID() por cada empleado nuevo
+     * El director se asignará cuando sea creado mediante Programa
+     * @param nombre
+     * @param cargo
+     */
     public Empleado(String nombre, String cargo) {
         this.nombre = nombre;
         this.cargo = comprobarCargo(cargo);
         id = generarID();
-        this.director = director;
-    }
-
-    public void setDirector(Empleado director) {
-        this.director = director;
+        this.director = null;
     }
 
     public static int getCantidad() {
         return cantidad;
     }
 
-
+    /**
+     * Atributos de Empleado incluyendo al director y la cantidad de Empleados totales.
+     */
     private String id;
     private String nombre;
     private String cargo;

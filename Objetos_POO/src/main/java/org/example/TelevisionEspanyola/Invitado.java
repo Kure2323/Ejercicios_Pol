@@ -39,6 +39,12 @@ public class Invitado {
         this.temporada = temporada;
     }
 
+    /**
+     * Constructor de Invitado con parámetros y la fecha es pedida mediante el método pedirFecha()
+     * @param nombre
+     * @param profesion
+     * @param temporada
+     */
     public Invitado(String nombre, String profesion, int temporada) {
         this.nombre = nombre;
         this.profesion = profesion;
@@ -47,6 +53,10 @@ public class Invitado {
 
     }
 
+    /**
+     * Pide al usuario la fecha de aparición de un invitado al programa.
+     * @return
+     */
     private LocalDate pedirFecha() {
         System.out.println("Introduce el año en el que acudirá el invitado " + this.getNombre() + ":");
         int anyo = in.nextInt();
@@ -65,6 +75,9 @@ public class Invitado {
         this.listaProgramas = listaProgramas;
     }
 
+    /**
+     * Atributos de Invitado
+     */
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
