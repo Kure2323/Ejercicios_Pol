@@ -173,13 +173,12 @@ public class Programa {
     /**
      * Constructor de Programa donde también es creado el director y añadido a la lista de empleados.
      * @param nombre
-     * @param cadena
      * @param nombreDirector
      */
-    public Programa(String nombre, Cadena cadena, String nombreDirector) {
+    public Programa(String nombre, String nombreDirector) {
         this.nombre = nombre;
         this.temporadas = 0;
-        this.cadena = cadena;
+        cadena = new Cadena();
         listaEmpleados = new ArrayList<>();
         this.director = new Empleado(nombreDirector, "director");
         listaEmpleados.add(director);
