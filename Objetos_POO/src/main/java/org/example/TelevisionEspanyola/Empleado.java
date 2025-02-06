@@ -75,6 +75,10 @@ public class Empleado {
         id = generarID();
         this.director = null;
     }
+    public Empleado(){
+        id = generarID();
+        this.director = null;
+    }
 
     public static int getCantidad() {
         return cantidad;

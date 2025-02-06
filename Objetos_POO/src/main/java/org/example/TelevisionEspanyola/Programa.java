@@ -69,6 +69,15 @@ public class Programa {
 
     }
 
+    public void eliminarEmpleado(String nombre, String cargo) {
+        for (Empleado emp : listaEmpleados) {
+            if (emp.getNombre().equals(nombre) && emp.getCargo().equals(cargo)) {
+                listaEmpleados.remove(emp);
+                return;
+            }
+        }
+    }
+
     /**
      * Muestra los invitados que han ido por la temporada introducida.
      * Recorre la lista y muestra aquellos cuya temporada de aparición coincida con la introducida.
@@ -156,6 +165,14 @@ public class Programa {
         listaInvitados.add(invitado);
         actualizarTemporadas();
 
+    }
+    public void eliminarInvitado(String nombre, String profesion, int temporada) {
+        for (Invitado inv : listaInvitados) {
+            if (inv.getNombre().equals(nombre) && inv.getProfesion().equals(profesion) && inv.getTemporada() == temporada) {
+                listaInvitados.remove(inv);
+                return;
+            }
+        }
     }
 
     /**
