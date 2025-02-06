@@ -105,25 +105,34 @@ public class Programa {
 
     public void invitadoAntes(String nombre) {
         if (buscarInvitado(nombre)) {
-            for (Invitado inv : listaInvitados) {
-                if (inv.getFecha_visita().isBefore())
-            }
+
         }
     }
+
 
     public void agregarInvitado(String nombre, String profesion, int temporada) {
 
         Invitado invitado = new Invitado(nombre, profesion, temporada);
         listaInvitados.add(invitado);
+        actualizarTemporadas();
 
     }
 
+    private void actualizarTemporadas() {
+        for (Invitado inv : listaInvitados) {
+            if (getTemporadas() < inv.getTemporada()){
+                setTemporadas(inv.getTemporada());
+            }
+        }
+    }
 
-    public Programa(String nombre,int temporadas, String nombreDirector) {
+    public Programa(String nombre, Cadena cadena, String nombreDirector) {
         this.nombre = nombre;
-        this.temporadas = temporadas;
+        this.temporadas = 0;
+        this.cadena = cadena;
         listaEmpleados = new ArrayList<>();
         this.director = new Empleado(nombreDirector, "director");
+        listaEmpleados.add(director);
         listaInvitados = new ArrayList<>();
     }
 

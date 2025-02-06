@@ -2,27 +2,27 @@ package org.example.TelevisionEspanyola;
 
 public class AppProgramas {
 
-    public static void main(String[] args) {
+    public static void main (String[] args){
+//creamos una cadena de tv
+        Cadena antena3 = new Cadena("Antena 3");
+        System.out.println(antena3);
+//creamos un programa
+        Programa el_hormiguero = new Programa("El Hormiguero", antena3,"Director1");
+        System.out.println(el_hormiguero);
+        System.out.println(antena3);
+//insertamos empleados en el programa
+        el_hormiguero.agregarEmpleado("Pablo Motos","presentador");
+        System.out.println(el_hormiguero);
+//ver empleados del programa
+        System.out.println(el_hormiguero.getListaEmpleados());
+//insertamos invitados en el programa
+        el_hormiguero.agregarInvitado("Aitana","cantante",10);
+//ver invitados del programa
+        System.out.println(el_hormiguero.getListaInvitados());
 
-        Programa programa = new Programa("Hormiguero", 8, "Pablo Motos");
-        programa.agregarEmpleado("Pepito", "presentador");
-        programa.agregarEmpleado("Izan", "putoncio");
-
-        System.out.println(programa.getCadena());
-
-
-        Cadena cadena = new Cadena( "Cadena libre");
-        cadena.agregarPrograma(programa);
-        programa.agregarInvitado("Izan", "Putero profesional", 6);
-        programa.agregarInvitado("Izan", "Desustanciao", 6);
-        programa.agregarInvitado("Juan", "Butanero", 5);
-        cadena.borrarPrograma(programa);
-        System.out.println(programa);
-
-        System.out.println(programa.buscarInvitado("Mariano"));
-
-
+        System.out.println(el_hormiguero.getTemporadas());
     }
+
 
 
 }

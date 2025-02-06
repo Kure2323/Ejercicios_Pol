@@ -52,7 +52,7 @@ public class Empleado {
         this.nombre = nombre;
         this.cargo = comprobarCargo(cargo);
         id = generarID();
-        this.director = null;
+        this.director = director;
     }
 
     public void setDirector(Empleado director) {

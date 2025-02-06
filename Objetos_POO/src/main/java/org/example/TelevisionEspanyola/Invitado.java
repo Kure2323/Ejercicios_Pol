@@ -1,6 +1,7 @@
 package org.example.TelevisionEspanyola;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Invitado {
@@ -43,6 +44,7 @@ public class Invitado {
         this.profesion = profesion;
         this.fecha_visita = pedirFecha();
         this.temporada = temporada;
+
     }
 
     private LocalDate pedirFecha() {
@@ -55,10 +57,19 @@ public class Invitado {
         return LocalDate.of(anyo,mes,dia);
     }
 
+    public ArrayList<Programa> getListaProgramas() {
+        return listaProgramas;
+    }
+
+    public void setListaProgramas(ArrayList<Programa> listaProgramas) {
+        this.listaProgramas = listaProgramas;
+    }
+
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
     private int temporada;
+    private ArrayList <Programa> listaProgramas;
 
     @Override
     public String toString() {
