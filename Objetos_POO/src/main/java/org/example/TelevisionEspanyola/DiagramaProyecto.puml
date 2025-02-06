@@ -1,0 +1,93 @@
+@startuml
+
+class Cadena {
+    - String nombre
+    - ArrayList<Programa> listaProgramas
+    + Cadena()
+    + Cadena(String nombre)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + ArrayList<Programa> getListaProgramas()
+    + void setListaProgramas(ArrayList<Programa> listaProgramas)
+    + void agregarPrograma(Programa programa)
+    + void borrarPrograma(Programa programa)
+    + String toString()
+}
+
+class Programa {
+    - String nombre
+    - Cadena cadena
+    - int temporadas
+    - ArrayList<Empleado> listaEmpleados
+    - ArrayList<Invitado> listaInvitados
+    - Empleado director
+    + Programa(String nombre, Cadena cadena, String nombreDirector)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + Cadena getCadena()
+    + void setCadena(Cadena cadena)
+    + int getTemporadas()
+    + void setTemporadas(int temporadas)
+    + ArrayList<Empleado> getListaEmpleados()
+    + void setListaEmpleados(ArrayList<Empleado> listaEmpleados)
+    + ArrayList<Invitado> getListaInvitados()
+    + void setListaInvitados(ArrayList<Invitado> listaInvitados)
+    + Empleado getDirector()
+    + void setDirector(Empleado director)
+    + void agregarEmpleado(String nombre, String cargo)
+    + void invitadosTemporada(int temporada)
+    + int vecesInvitado(String nombre)
+    + void rastrearInvitado(String nombre)
+    + boolean buscarInvitado(String nombre)
+    + void agregarInvitado(String nombre, String profesion, int temporada)
+    + String toString()
+}
+
+class Empleado {
+    - String id
+    - String nombre
+    - String cargo
+    - Empleado director
+    - static int cantidad
+    + Empleado(String nombre, String cargo)
+    + String getId()
+    + void setId(String id)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getCargo()
+    + void setCargo(String cargo)
+    + Empleado getDirector()
+    + void asignarDirector(Empleado director)
+    + String generarID()
+    + String comprobarCargo(String cargo)
+    + static int getCantidad()
+    + String toString()
+}
+
+class Invitado {
+    - String nombre
+    - String profesion
+    - LocalDate fecha_visita
+    - int temporada
+    - ArrayList<Programa> listaProgramas
+    + Invitado(String nombre, String profesion, int temporada)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getProfesion()
+    + void setProfesion(String profesion)
+    + LocalDate getFecha_visita()
+    + void setFecha_visita(LocalDate fecha_visita)
+    + int getTemporada()
+    + void setTemporada(int temporada)
+    + ArrayList<Programa> getListaProgramas()
+    + void setListaProgramas(ArrayList<Programa> listaProgramas)
+    + String toString()
+}
+
+Cadena "1" -- "*" Programa : contiene
+Programa "1" -- "*" Empleado : emplea
+Programa "1" -- "*" Invitado : invita
+Empleado "1" -- "0..1" Empleado : tiene director
+Invitado "*" -- "*" Programa : ha participado en
+
+@enduml
