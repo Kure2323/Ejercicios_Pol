@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Lombok.Instituto;
 import org.example.biblioteca.Editorial;
 import org.example.biblioteca.Estudiante;
 import org.example.biblioteca.Libro;
@@ -36,18 +37,32 @@ public class Main {
 //        System.out.println(equipo1);
 //        equipo1.eliminarComponente(persona1);
 //        System.out.println(equipo1);
+//
+//        Estudiante estudiante1 = new Estudiante("Manuel", "2ºA","manumanuel@gmail.com");
+//        Editorial editorial = new Editorial("Editorial Chingona", "Yugoslavia");
+//        Libro libro = new Libro("Tú y quizás yo", "Marcela M. S.", editorial);
+//
+//        libro.prestar(estudiante1);
+//        System.out.println(estudiante1);
+//
+//        libro.devolver(estudiante1);
+//        System.out.println(estudiante1);
+//        System.out.println(editorial);
+//        System.out.println(libro);
+//
+//        Instituto ies_alluser = null;
+//        try{
+//            ies_alluser = new Instituto("Hola", "mutxamel", "calle falsa 123");
+//
+//        }catch (NullPointerException er){
+//            System.out.println("El nombre no puede ser nulo.");
+//        }
+//
+//        System.out.println(ies_alluser);
 
-        Estudiante estudiante1 = new Estudiante("Manuel", "2ºA","manumanuel@gmail.com");
-        Editorial editorial = new Editorial("Editorial Chingona", "Yugoslavia");
-        Libro libro = new Libro("Tú y quizás yo", "Marcela M. S.", editorial);
 
-        libro.prestar(estudiante1);
-        System.out.println(estudiante1);
 
-        libro.devolver(estudiante1);
-        System.out.println(estudiante1);
-        System.out.println(editorial);
-        System.out.println(libro);
+
 
 
 
