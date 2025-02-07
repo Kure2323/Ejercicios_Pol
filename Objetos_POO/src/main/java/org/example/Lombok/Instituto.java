@@ -13,6 +13,11 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class Instituto {
 
+    /**
+     * Como nombre es obligatorio debe ser NonNull y además
+     * al no poder ser cambiado una vez creado, este no tiene Setter
+     * al contrario que el resto de atributos.
+     */
     @NonNull
     private String nombre;
     @Setter
@@ -22,12 +27,22 @@ public class Instituto {
     @Setter
     private ArrayList<Curso> listaCursos = new ArrayList<>();
 
-
+    /**
+     * Constructor creado para el caso de solo introducción de nombre y población.
+     * @param nombre
+     * @param poblacion
+     */
     public Instituto(String nombre, String poblacion) {
         this.nombre = Objects.requireNonNullElse(nombre, "Instituto sin nombre");
         this.poblacion = poblacion;
     }
 
+    /**
+     * Cuando el estudiante agregado sea not null entonces se añadirá a la lista de estudiantes
+     * y además se incluirá el curso al que pertenece a la lista de cursos,
+     * si es q este no existe ya y no sea nulo.
+     * @param estudiante
+     */
     public void agregarEstudiante(Estudiante estudiante) {
         if (estudiante != null) {
             listaEstudiantes.add(estudiante);
@@ -39,6 +54,11 @@ public class Instituto {
         }
     }
 
+    /**
+     * Método que en caso de meter un curso not null lo busca en la lista de cursos, y si en esta no se
+     * encuentra ya se añade.
+     * @param curso
+     */
     public void agregarCurso(Curso curso) {
         if (curso != null) {
             for (Curso cur : listaCursos) {

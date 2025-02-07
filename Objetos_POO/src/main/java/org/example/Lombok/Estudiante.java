@@ -6,6 +6,10 @@ import lombok.*;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Estudiante {
+    /**
+     * El nombre es el único que tiene NonNull pues se trata de un atributo imprescindible
+     * y no puede ser vacío.
+     */
     @NonNull
     private String nombre;
     private int edad;
