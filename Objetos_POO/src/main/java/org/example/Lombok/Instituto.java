@@ -34,6 +34,8 @@ public class Instituto {
             if (estudiante.getCurso() != null) {
                 agregarCurso(estudiante.getCurso());
             }
+        } else {
+            System.out.println("No se puede agregar un estudiante nulo.");
         }
     }
 
@@ -45,6 +47,8 @@ public class Instituto {
                 }
             }
             listaCursos.add(curso);
+        } else {
+            System.out.println("No se puede agregar un curso nulo.");
         }
     }
 
