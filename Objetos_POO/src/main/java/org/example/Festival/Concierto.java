@@ -20,6 +20,18 @@ public class Concierto {
         System.out.println("Información del organizador:");
         orga.mostrarInfo();
 
+        Persona asistente = new Asistente("Pepe", 30, "General");
+
+        Persona[] personas = {
+                new Asistente("Lucas", 18, "VIP"),
+                new Artista("Sofía", 25, "Rock Alternativo"),
+                new Organizador("Martín", 30, "Producción")
+        };
+
+        for (Persona p : personas) {
+            p.mostrarInfo(); //se ejecuta la versión sobrescrita de cada subclase
+        }
+
 
     }
 }
