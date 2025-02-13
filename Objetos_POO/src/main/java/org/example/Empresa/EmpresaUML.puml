@@ -1,0 +1,21 @@
+@startuml
+
+package "org.example.Empresa" {
+    class Empleado {
+        +realizarTarea(): void
+    }
+
+    class Desarrollador extends Empleado {
+        +realizarTarea(): void
+    }
+
+    class Disenyador extends Empleado {
+        +realizarTarea(): void
+    }
+
+    class Gerente extends Empleado {
+        +realizarTarea(): void
+    }
+}
+
+@enduml

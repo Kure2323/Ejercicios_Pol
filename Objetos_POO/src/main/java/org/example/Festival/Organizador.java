@@ -14,4 +14,8 @@ public class Organizador extends Persona{
         System.out.println("Rol: " + rol);
     }
 
+    public void accederEvento() {
+        System.out.println("Accediendo al evento como Organizador: Coordinando el evento.");
+    }
+
 }

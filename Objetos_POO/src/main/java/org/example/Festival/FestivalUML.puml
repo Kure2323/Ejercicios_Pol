@@ -1,0 +1,36 @@
+@startuml
+
+class Persona {
+    - String nombre
+    - int edad
+    + Persona(String nombre, int edad)
+    + mostrarInfo()
+    + accederEvento()
+}
+
+class Organizador {
+    - String rol
+    + Organizador(String nombre, int edad, String rol)
+    + mostrarInfo()
+    + accederEvento()
+}
+
+class Asistente {
+    - String entrada
+    + Asistente(String nombre, int edad, String entrada)
+    + mostrarInfo()
+    + accederEvento()
+}
+
+class Artista {
+    - String generoMusical
+    + Artista(String nombre, int edad, String generoMusical)
+    + mostrarInfo()
+    + accederEvento()
+}
+
+Persona <|-- Organizador
+Persona <|-- Asistente
+Persona <|-- Artista
+
+@enduml
