@@ -4,7 +4,7 @@ public class Organizador extends Persona implements Organizable{
 
     private String rol;
 
-    public Organizador(String nombre, int edad, String rol) {
+    public Organizador(String nombre, int edad, String rol) throws EdadMinimaException {
         super(nombre, edad);
         this.rol = rol;
     }
