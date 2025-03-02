@@ -6,7 +6,7 @@ import lombok.ToString;
 
 import java.util.ArrayList;
 
-@Getter @Setter
+@Getter @Setter @ToString
 public class Masajista extends MutxamelFC{
 
     private String titulacion;
@@ -17,6 +17,7 @@ public class Masajista extends MutxamelFC{
         super(nombre, edad);
         this.titulacion=titulacion;
         this.anosExperiencia=anosExperiencia;
+        //Lista para la app de mantenimiento
         listaMasajistas.add(this);
     }
 

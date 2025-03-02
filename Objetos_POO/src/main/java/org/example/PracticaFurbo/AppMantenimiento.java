@@ -33,7 +33,7 @@ public class AppMantenimiento {
     }
 
     /**
-     * Recibe el dato recibido de la pantalla principal y le deriva 
+     * Recibe el dato recibido de la pantalla principal y le deriva a cada método correspondiente
      */
     private static void recibirOpcion() {
         switch (in.next()) {
@@ -48,11 +48,18 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método para organizar y situar cómodamente las pantallas
+     */
     private static void mantenerMasajistas() {
         pantalla3();
         recibirOpcion3();
-
     }
+
+    /**
+     * Muestra por pantalla el menú de las tercera opción del menú principal de mantenimiento.
+     * En este menú se muestran las opciones
+     */
     private static void pantalla3() {
         System.out.println("=== Mantenimiento de Masajistas ===");
         System.out.println();
@@ -60,37 +67,18 @@ public class AppMantenimiento {
         System.out.println("    [2]. Modificar masajista existente");
         System.out.println("    [X]. Volver a menú principal");
     }
+
+    /**
+     * Recibe el dato de la pantalla3 y lo redirige a sus métodos correspondientes en un switch case,
+     * en caso de 'X' o cualquier otro, vuelve a la pantalla anterior
+     */
     private static void recibirOpcion3() {
         switch (in.next()) {
             case "1":
-                System.out.println("Introducir el nombre del masajista");
-                String nombre = in.next();
-                System.out.println("Introduce los años del masajista");
-                int anyo = in.nextInt();
-                System.out.println("Introduce la titulación del masajista");
-                String titulacion = in.next();
-                System.out.println("Introduce los años de experiencia del masajista");
-                Masajista masajistaN = new Masajista(nombre, anyo, titulacion, in.nextInt());
-                System.out.println("El masajista " + nombre + " ha sido creado con éxito");
-                mantenerMasajistas();
+                anyadirMasajistaNuevo();
                 break;
             case "2":
-                if (listaMasajistas.isEmpty()) {
-                    System.out.println("No hay masajistas a los que modificar.");
-                    mantenerMasajistas();
-                }
-                System.out.println("¿Qué masajista quiere modificar?");
-                for (Masajista mas : listaMasajistas) {
-                    System.out.print(mas.getNombre() + " de " + mas.getEdad() + " años, ");
-                }
-                System.out.println("Introduce el nombre del masajista a modificar:");
-                String nombreMod = in.next();
-                System.out.println("Introduce los años del masajista a modificar:");
-                int anyoMod = in.nextInt();
-                Masajista modifica = obtenerMasajista(nombreMod, anyoMod);
-
-                modificarMasajista(modifica);
-                mantenerMasajistas();
+                modificarMasajista();
                 break;
             default:
                 iniciarMantenimiento();
@@ -98,6 +86,53 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método donde se modifica un masajista, en caso de no existir ningún masajista vuelve a la pantalla anterior
+     * Para seleccionar a un masajista tan solo se debe introducir su número correspondiente
+     */
+    private static void modificarMasajista() {
+        if (listaMasajistas.isEmpty()) {
+            System.out.println("No hay masajistas a los que modificar.");
+            mantenerMasajistas();
+        }
+
+        System.out.println("¿Qué masajista quiere modificar? introduzca su número");
+        for (Masajista mas : listaMasajistas) {
+            System.out.println("    [" + listaMasajistas.indexOf(mas) + "] " + mas);
+        }
+        System.out.println("    [X] Volver");
+        String entrada = in.next();
+        for (Masajista mas : listaMasajistas) {
+            if (Integer.toString(listaMasajistas.indexOf(mas)).equals(entrada)) {
+                modificarMasajista(mas);
+            }
+        }
+
+        mantenerMasajistas();
+    }
+
+    /**
+     * Método en el que se pide todo para añadir un nuevo masajista y crearlo
+     * Tras crearlo vuelve al menú de masajistas
+     */
+    private static void anyadirMasajistaNuevo() {
+        System.out.println("Introducir el nombre del masajista");
+        String nombre = in.next();
+        System.out.println("Introduce los años del masajista");
+        int anyo = in.nextInt();
+        System.out.println("Introduce la titulación del masajista");
+        String titulacion = in.next();
+        System.out.println("Introduce los años de experiencia del masajista");
+        Masajista masajistaN = new Masajista(nombre, anyo, titulacion, in.nextInt());
+        System.out.println("El masajista " + nombre + " ha sido creado con éxito");
+        mantenerMasajistas();
+    }
+
+    /**
+     * Método donde tanto se muestra como se obtiene los datos de la pantalla de cuando una vez ya ha sido
+     * seleccionado el masajista a modificar. En este menú se selecciona el atributo que se quiere cambiar del masajista
+     * @param modifica Es introducido el masajista seleccionado en el menú de selección de masajista
+     */
     private static void modificarMasajista(Masajista modifica) {
         System.out.println("¿Qué quiere modificar del masajista en cuestión?");
         System.out.println("    [1]. Nombre");
@@ -136,16 +171,6 @@ public class AppMantenimiento {
         }
     }
 
-    private static Masajista obtenerMasajista(String nombreMod, int anyoMod) {
-        for (Masajista mas : listaMasajistas) {
-            if (nombreMod.equals(mas.getNombre()) && anyoMod == mas.getEdad()) {
-                return mas;
-            }
-        }
-        System.out.println("No existe tal masajista");
-        mantenerMasajistas();
-        return null;
-    }
 
 
 }

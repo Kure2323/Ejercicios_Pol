@@ -15,6 +15,12 @@ public class Entrenador extends MutxamelFC implements AccionesDeportivas{
         this.formacionPreferida=formatoFormacion(formacionPreferida);
     }
 
+    /**
+     * Método para checkear si el formato introducido de la formación es correcto,
+     * en caso de no serlo salta la excepción personalizada
+     * @param formacionPreferida
+     * @return
+     */
     private String formatoFormacion(String formacionPreferida) {
         if (formacionPreferida.matches("[0-9]-[0-9]-[0-9]")) {
             return formacionPreferida;

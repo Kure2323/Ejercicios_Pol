@@ -23,6 +23,12 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         listaJugadores.add(this);
     }
 
+    /**
+     * Método para checkear si el dorsal introducido existía ya,
+     * en caso de existir salta la excepción personalizada y salta un mensaje.
+     * @param dorsal
+     * @return
+     */
     private int comprobarDorsal(int dorsal) {
         for (Jugador jug : listaJugadores) {
             if (jug.getDorsal() == dorsal) {
