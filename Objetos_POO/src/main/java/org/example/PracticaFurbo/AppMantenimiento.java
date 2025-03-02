@@ -166,7 +166,6 @@ public class AppMantenimiento {
                 modificarMasajista(modifica);
                 break;
             default:
-                pantalla3();
                 break;
         }
     }
