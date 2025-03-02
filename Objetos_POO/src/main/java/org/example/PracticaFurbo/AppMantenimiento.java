@@ -1,8 +1,19 @@
 package org.example.PracticaFurbo;
 
+import java.util.Scanner;
+
+import static org.example.PracticaFurbo.Masajista.listaMasajistas;
+
 public class AppMantenimiento {
 
-    private void pantallaPrincipal() {
+    static Scanner in = new Scanner(System.in);
+
+    /**
+     * Método el cual inicia todo el mantenimiento.
+     * Sólo está disponible la tercera (3º) opción.
+     * También es el único método public pues no me interesa que el resto sean llamados.
+     */
+    public static void iniciarMantenimiento() {
         System.out.println("=== App de mantenimiento del MUTXAMEL FC ===");
         System.out.println();
         System.out.println("    [1]. Mantenimiento de jugadores");
@@ -18,8 +29,123 @@ public class AppMantenimiento {
         System.out.println("=============================================");
         System.out.println();
         System.out.println("Selecciona una opción -->");
+        recibirOpcion();
     }
 
+    /**
+     * Recibe el dato recibido de la pantalla principal y le deriva 
+     */
+    private static void recibirOpcion() {
+        switch (in.next()) {
+            case "3":
+                mantenerMasajistas();
+                break;
+            default:
+                //Debe forzar salida del programa pues hay ocasiones donde este método es llamado y se solapa con otros,
+                //en dichas ocasiones no termina el programa.
+                System.exit(0);
+                break;
+        }
+    }
+
+    private static void mantenerMasajistas() {
+        pantalla3();
+        recibirOpcion3();
+
+    }
+    private static void pantalla3() {
+        System.out.println("=== Mantenimiento de Masajistas ===");
+        System.out.println();
+        System.out.println("    [1]. Añadir masajista nuevo");
+        System.out.println("    [2]. Modificar masajista existente");
+        System.out.println("    [X]. Volver a menú principal");
+    }
+    private static void recibirOpcion3() {
+        switch (in.next()) {
+            case "1":
+                System.out.println("Introducir el nombre del masajista");
+                String nombre = in.next();
+                System.out.println("Introduce los años del masajista");
+                int anyo = in.nextInt();
+                System.out.println("Introduce la titulación del masajista");
+                String titulacion = in.next();
+                System.out.println("Introduce los años de experiencia del masajista");
+                Masajista masajistaN = new Masajista(nombre, anyo, titulacion, in.nextInt());
+                System.out.println("El masajista " + nombre + " ha sido creado con éxito");
+                mantenerMasajistas();
+                break;
+            case "2":
+                if (listaMasajistas.isEmpty()) {
+                    System.out.println("No hay masajistas a los que modificar.");
+                    mantenerMasajistas();
+                }
+                System.out.println("¿Qué masajista quiere modificar?");
+                for (Masajista mas : listaMasajistas) {
+                    System.out.print(mas.getNombre() + " de " + mas.getEdad() + " años, ");
+                }
+                System.out.println("Introduce el nombre del masajista a modificar:");
+                String nombreMod = in.next();
+                System.out.println("Introduce los años del masajista a modificar:");
+                int anyoMod = in.nextInt();
+                Masajista modifica = obtenerMasajista(nombreMod, anyoMod);
+
+                modificarMasajista(modifica);
+                mantenerMasajistas();
+                break;
+            default:
+                iniciarMantenimiento();
+                break;
+        }
+    }
+
+    private static void modificarMasajista(Masajista modifica) {
+        System.out.println("¿Qué quiere modificar del masajista en cuestión?");
+        System.out.println("    [1]. Nombre");
+        System.out.println("    [2]. Edad");
+        System.out.println("    [3]. Titulación");
+        System.out.println("    [4]. Años de experiencia");
+        System.out.println("    [X]. Volver");
+        switch (in.next()) {
+            case "1":
+                System.out.println("Introduce el nombre que quiere que tenga:");
+                modifica.setNombre(in.next());
+                System.out.println("Modificado con éxito");
+                modificarMasajista(modifica);
+                break;
+            case "2":
+                System.out.println("Introduce la edad que quiere que tenga:");
+                modifica.setEdad(in.nextInt());
+                System.out.println("Modificado con éxito");
+                modificarMasajista(modifica);
+                break;
+            case "3":
+                System.out.println("Introduce la titulación que quiere que tenga:");
+                modifica.setTitulacion(in.next());
+                System.out.println("modificado con éxito");
+                modificarMasajista(modifica);
+                break;
+            case "4":
+                System.out.println("Introduce los años de experiencia que quiere que tenga:");
+                modifica.setAnosExperiencia(in.nextInt());
+                System.out.println("Modificado con éxito");
+                modificarMasajista(modifica);
+                break;
+            default:
+                pantalla3();
+                break;
+        }
+    }
+
+    private static Masajista obtenerMasajista(String nombreMod, int anyoMod) {
+        for (Masajista mas : listaMasajistas) {
+            if (nombreMod.equals(mas.getNombre()) && anyoMod == mas.getEdad()) {
+                return mas;
+            }
+        }
+        System.out.println("No existe tal masajista");
+        mantenerMasajistas();
+        return null;
+    }
 
 
 }

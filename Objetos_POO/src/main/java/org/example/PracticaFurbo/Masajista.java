@@ -4,16 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+
 @Getter @Setter
 public class Masajista extends MutxamelFC{
 
     private String titulacion;
     private int anosExperiencia;
+    static ArrayList<Masajista> listaMasajistas = new ArrayList<>();
 
     public Masajista(String nombre, int edad, String titulacion, int anosExperiencia) {
         super(nombre, edad);
         this.titulacion=titulacion;
         this.anosExperiencia=anosExperiencia;
+        listaMasajistas.add(this);
     }
 
     public void darMasaje(Jugador jugador) {
