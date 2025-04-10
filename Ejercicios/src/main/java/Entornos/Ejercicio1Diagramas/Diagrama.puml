@@ -1,0 +1,32 @@
+@startuml
+
+class Empleado {
+    - dni: String
+    - nombre: String
+}
+
+class Vendedor {
+    - numeroVendedor: int
+    - zona: String
+}
+
+class Jefe {
+    - salario: float
+}
+
+class Poliza {
+    - numeroPoliza: int
+    - importe: float
+    - fechaVenta: Date
+}
+
+class Beneficiario {
+    - nombre: String
+}
+
+Empleado <|-- Vendedor
+Empleado <|-- Jefe
+Vendedor "1" -- "many" Poliza : Vende
+Poliza "1" -- "1" Beneficiario : Tiene
+
+@enduml
