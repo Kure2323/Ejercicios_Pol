@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="235.0" prefWidth="314.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demofx.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" />
+    <Button onAction="#onHelloButtonClick" prefHeight="49.0" prefWidth="60.0" text="Hello!" />
+   <TextField prefHeight="26.0" prefWidth="225.0" promptText="Introduce Bocata" />
+    <Button fx:id="sumar1" text="Dale!" />
+    <Label fx:id="contador_etiqueta" />
+    <Button fx:id="pantallaHello" onAction="#irAPantalla2" text="Ir a pantalla 2" />
+</VBox>

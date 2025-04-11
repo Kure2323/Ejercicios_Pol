@@ -1,4 +1,4 @@
-module org.example.javafx {
+module org.example.demofx {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -11,6 +11,6 @@ module org.example.javafx {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens org.example.javafx to javafx.fxml;
-    exports org.example.javafx;
+    opens org.example.demofx to javafx.fxml;
+    exports org.example.demofx;
 }
