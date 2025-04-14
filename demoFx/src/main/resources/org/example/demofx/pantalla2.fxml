@@ -14,7 +14,7 @@
 
     <TextField fx:id="nombreTextField" promptText="Introduce un nombre..." />
     <TextField fx:id="precioTextField" promptText="Introduce el precio..." />
-   <TableView prefHeight="200.0" prefWidth="200.0">
+   <TableView prefHeight="200.0" prefWidth="200.0" fx:id="tablaBocadillos">
      <columns>
        <TableColumn prefWidth="75.0" text="Nombre" fx:id="nombreTable"/>
        <TableColumn prefWidth="75.0" text="Precio" fx:id="precioTable"/>

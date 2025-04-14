@@ -59,6 +59,8 @@ public class Pantalla2Controller {
 
         System.out.println("Bocadillo creado: " + bocadillo.getNombre() + " con precio " + bocadillo.getPrecio());
 
+        listaBocadillos.add(bocadillo);
+
         nombreTextField.clear();
         precioTextField.clear();
 
